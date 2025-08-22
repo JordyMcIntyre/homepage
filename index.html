@@ -1,0 +1,3213 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PlaceOS | Make Buildings Sing with Automation</title>
+
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="PlaceOS is the open integration and automation platform for smart workplaces and campuses—connect systems, orchestrate workflows, and deliver delightful experiences."
+        />
+        <meta
+            name="keywords"
+            content="smart building, workplace experience, building automation, IoT platform, access control integration, hybrid work, facility management"
+        />
+        <meta name="author" content="PlaceOS" />
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="https://placeos.com/assets/images/favicon-32x32.png"
+            type="image/png"
+        />
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Fonts: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome for Mockup -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- Wistia Player Scripts -->
+        <script
+            src="https://fast.wistia.com/assets/external/E-v1.js"
+            async
+        ></script>
+        <script src="https://fast.wistia.com/playlist.js" async></script>
+
+        <!-- Custom Styles -->
+        <style>
+            :root {
+                --bg: #0d1117;
+                --text: #e6edf3;
+                --muted: #8a97a7;
+                --brand: #c52b67; /* PlaceOS pink */
+                --accent: #7aa8ff;
+                --card: rgba(255, 255, 255, 0.06);
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+                --radius-lg: 16px;
+                --ring: rgba(197, 43, 103, 0.35);
+            }
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+            .gradient-text-brand {
+                background: linear-gradient(
+                    90deg,
+                    #c52b67,
+                    #f07,
+                    var(--accent)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .cta-primary {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                border-radius: 999px;
+                padding: 14px 28px;
+                font-weight: 600;
+                transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+                background: linear-gradient(135deg, var(--brand), #f07);
+                color: white;
+                box-shadow: 0 10px 24px rgba(197, 43, 103, 0.35);
+            }
+            .cta-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 16px 34px rgba(197, 43, 103, 0.45);
+            }
+            .cta-secondary {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                border-radius: 999px;
+                padding: 14px 28px;
+                font-weight: 600;
+                transition:
+                    transform 0.2s ease,
+                    background 0.2s ease;
+                background: rgba(255, 255, 255, 0.06);
+                color: var(--text);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .cta-secondary:hover {
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, 0.1);
+            }
+            .hero-glow {
+                background:
+                    radial-gradient(
+                        1200px 1200px at 90% -10%,
+                        rgba(197, 43, 103, 0.22),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        900px 900px at -10% 110%,
+                        rgba(122, 168, 255, 0.18),
+                        transparent 60%
+                    );
+            }
+            .card {
+                background: var(--card);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: var(--radius-lg);
+                padding: 22px;
+                box-shadow: var(--shadow);
+            }
+            .pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 12px;
+                padding: 6px 10px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                color: #cdd7e6;
+                font-weight: 500;
+            }
+            .kicker {
+                color: #a8b5c5;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.22em;
+                font-size: 12px;
+            }
+            .scroll-animation {
+                opacity: 0;
+                transform: translateY(20px);
+                transition:
+                    opacity 0.7s ease-out,
+                    transform 0.7s ease-out;
+            }
+            .scroll-animation.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* Form input styling */
+            input,
+            textarea {
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: rgba(255, 255, 255, 0.06);
+                color: var(--text);
+                outline: none;
+                transition:
+                    border 0.2s ease,
+                    background 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            input::placeholder,
+            textarea::placeholder {
+                color: #9fb0c8;
+            }
+            input:focus,
+            textarea:focus {
+                border-color: rgba(197, 43, 103, 0.7);
+                box-shadow: 0 0 0 4px rgba(197, 43, 103, 0.18);
+            }
+
+            /* Page container styles */
+            .page {
+                display: none;
+            }
+            .page.active {
+                display: block;
+            }
+
+            /* Manifesto Page Styles */
+            .manifesto-wrap {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 0 20px 72px;
+            }
+            .manifesto-header {
+                text-align: center;
+                margin-bottom: 28px;
+            }
+            .eyebrow {
+                display: inline-block;
+                padding: 6px 12px;
+                border: 1px solid rgba(148, 163, 184, 0.25);
+                color: var(--muted);
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                margin-bottom: 14px;
+                backdrop-filter: blur(6px);
+            }
+            .manifesto-header h1 {
+                font-size: clamp(32px, 4vw, 56px);
+                line-height: 1.05;
+                margin: 0 0 10px;
+                letter-spacing: -0.02em;
+                color: var(--text);
+            }
+            .subtitle {
+                color: var(--muted);
+                max-width: 800px;
+                margin: 8px auto 0;
+                font-size: clamp(16px, 1.6vw, 18px);
+            }
+            .tagline {
+                font-weight: 600;
+                color: var(--brand);
+            }
+            .accordion {
+                display: grid;
+                gap: 14px;
+                margin-top: 28px;
+            }
+            .accordion details {
+                border: 1px solid rgba(148, 163, 184, 0.18);
+                border-radius: var(--radius-lg);
+                background: linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.02),
+                    rgba(255, 255, 255, 0)
+                );
+                overflow: clip;
+                transition:
+                    border-color 0.25s ease,
+                    background 0.25s ease,
+                    box-shadow 0.25s ease;
+                box-shadow:
+                    0 1px 0 rgba(255, 255, 255, 0.05),
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+            }
+            .accordion details[open] {
+                border-color: rgba(197, 43, 103, 0.35);
+                background: linear-gradient(
+                    180deg,
+                    rgba(197, 43, 103, 0.07),
+                    rgba(197, 43, 103, 0.02)
+                );
+                box-shadow: 0 0 0 6px var(--ring);
+            }
+            .accordion summary {
+                list-style: none;
+                cursor: pointer;
+                padding: 18px 22px;
+                position: relative;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 12px;
+                font-weight: 600;
+                font-size: 18px;
+                letter-spacing: -0.01em;
+            }
+            .accordion summary::-webkit-details-marker {
+                display: none;
+            }
+            .chev {
+                width: 22px;
+                height: 22px;
+                border-radius: 8px;
+                display: grid;
+                place-items: center;
+                transition:
+                    transform 0.25s ease,
+                    background 0.25s ease,
+                    color 0.25s ease;
+                color: var(--muted);
+            }
+            .accordion details[open] .chev {
+                transform: rotate(180deg);
+                color: var(--brand);
+                background: rgba(197, 43, 103, 0.08);
+            }
+            .accordion .content {
+                padding: 0 22px 20px 22px;
+                color: var(--text);
+            }
+            .accordion .content p {
+                margin: 0 0 12px;
+            }
+            .accordion .content ul {
+                margin: 8px 0 16px 0;
+                padding-left: 20px;
+                list-style-type: disc;
+            }
+            .accordion .lead {
+                font-size: 18px;
+                color: var(--muted);
+            }
+            .accordion a {
+                color: var(--brand);
+                text-decoration: none;
+                border-bottom: 1px dotted rgba(197, 43, 103, 0.5);
+            }
+            .accordion a:hover {
+                border-bottom-style: solid;
+            }
+            .accordion .kicker {
+                margin-top: 26px;
+                font-weight: 600;
+                color: var(--muted);
+            }
+            .accordion summary:focus {
+                outline: none;
+            }
+            .accordion summary:focus-visible {
+                box-shadow: 0 0 0 6px var(--ring);
+                border-radius: var(--radius-lg);
+            }
+
+            .loader {
+                width: 20px;
+                height: 20px;
+                border: 2px solid #fff;
+                border-bottom-color: transparent;
+                border-radius: 50%;
+                display: inline-block;
+                box-sizing: border-box;
+                animation: rotation 1s linear infinite;
+            }
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            /* Dropdown styles */
+            .dropdown {
+                position: relative;
+            }
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #161b22;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: var(--radius-lg);
+                padding: 0.5rem;
+                min-width: 200px;
+                z-index: 50;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+            .dropdown-menu a {
+                display: block;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+            }
+            .dropdown-menu a:hover {
+                background-color: var(--card);
+            }
+
+            /* Integration Filter Styles */
+            .filter-btn {
+                transition: all 0.2s ease-in-out;
+            }
+            .filter-btn.active {
+                background-color: var(--brand);
+                color: white;
+                box-shadow: 0 4px 14px rgba(197, 43, 103, 0.5);
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+        <!-- Header -->
+        <header
+            id="header"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        >
+            <div class="container mx-auto px-6">
+                <div class="flex justify-between items-center h-[72px]">
+                    <!-- Logo -->
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 router-link"
+                        data-page="homepage"
+                    >
+                        <div
+                            class="w-[30px] h-[30px] inline-grid place-items-center rounded-lg bg-[conic-gradient(from_210deg,var(--brand),#f07,var(--accent))] shadow-[0_6px_20px_rgba(197,43,103,.45)]"
+                        ></div>
+                        <span class="text-2xl font-bold text-white"
+                            >PlaceOS</span
+                        >
+                    </a>
+
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <div class="dropdown">
+                            <button
+                                class="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
+                            >
+                                Products
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"
+                                    ></path>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a
+                                    href="#workmate"
+                                    class="router-link"
+                                    data-page="workmate"
+                                    >WorkMate</a
+                                >
+                                <a
+                                    href="#stagehand"
+                                    class="router-link"
+                                    data-page="stagehand"
+                                    >StageHand</a
+                                >
+                                <a
+                                    href="#backoffice"
+                                    class="router-link"
+                                    data-page="backoffice"
+                                    >Backoffice</a
+                                >
+                                <a
+                                    href="#studio"
+                                    class="router-link text-gray-500"
+                                    data-page="studio"
+                                    >Studio
+                                    <span class="text-xs"
+                                        >(Coming Soon)</span
+                                    ></a
+                                >
+                                <a
+                                    href="#lenspath"
+                                    class="router-link"
+                                    data-page="lenspath"
+                                    >LensPath
+                                </a>
+                            </div>
+                        </div>
+                        <a
+                            href="#integrations"
+                            class="text-gray-300 hover:text-white transition-colors router-link"
+                            data-page="integrations"
+                            >Integrations</a
+                        >
+                        <a
+                            href="#manifesto"
+                            class="text-gray-300 hover:text-white transition-colors router-link"
+                            data-page="manifesto"
+                            >Manifesto</a
+                        >
+                        <a
+                            href="http://tv.placeos.com"
+                            target="_blank"
+                            class="text-gray-300 hover:text-white transition-colors"
+                        >
+                            <i class="fas fa-tv"></i>
+                        </a>
+                        <a href="#demo" class="cta-primary text-sm px-5 py-2.5"
+                            >Book a Demo</a
+                        >
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button
+                        id="mobile-menu-button"
+                        class="md:hidden cta-secondary text-sm px-4 py-2"
+                    >
+                        Menu
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden px-6 pb-4 bg-[#0b0f14]/90 backdrop-blur-lg border-t border-white/5"
+            >
+                <div class="py-2 font-bold text-white">Products</div>
+                <div class="pl-4">
+                    <a
+                        href="#workmate"
+                        class="block py-2 text-gray-300 hover:text-white router-link"
+                        data-page="workmate"
+                        >WorkMate</a
+                    >
+                    <a
+                        href="#stagehand"
+                        class="block py-2 text-gray-300 hover:text-white router-link"
+                        data-page="stagehand"
+                        >StageHand</a
+                    >
+                    <a
+                        href="#backoffice"
+                        class="block py-2 text-gray-300 hover:text-white router-link"
+                        data-page="backoffice"
+                        >Backoffice</a
+                    >
+                    <a
+                        href="#studio"
+                        class="block py-2 text-gray-500 router-link"
+                        data-page="studio"
+                        >Studio (Coming Soon)</a
+                    >
+                    <a
+                        href="#lenspath"
+                        class="block py-2 text-gray-300 hover:text-white router-link"
+                        data-page="lenspath"
+                        >LensPath</a
+                    >
+                </div>
+                <a
+                    href="#integrations"
+                    class="block py-2 text-gray-300 hover:text-white router-link"
+                    data-page="integrations"
+                    >Integrations</a
+                >
+                <a
+                    href="#manifesto"
+                    class="block py-2 text-gray-300 hover:text-white router-link"
+                    data-page="manifesto"
+                    >Manifesto</a
+                >
+                <a
+                    href="http://tv.placeos.com"
+                    target="_blank"
+                    class="block py-2 text-gray-300 hover:text-white"
+                    >TV Mode</a
+                >
+                <a
+                    href="#demo"
+                    class="block mt-4 text-center cta-primary w-full"
+                    >Book a Demo</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Homepage Section -->
+            <div id="homepage" class="page active">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden hero-glow"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <h1
+                            class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 scroll-animation"
+                        >
+                            Your buildings don’t talk.
+                            <br />
+                            <span class="gradient-text-brand"
+                                >We make them sing with automation.</span
+                            >
+                        </h1>
+                        <p
+                            class="max-w-4xl mx-auto text-lg md:text-xl text-gray-300 mb-10 scroll-animation"
+                            style="transition-delay: 150ms"
+                        >
+                            PlaceOS connects your building systems, data, and
+                            experiences. Power occupancy-driven automation to
+                            create smarter campuses, more efficient workplaces,
+                            and responsive environments for any use case.
+                        </p>
+                        <div
+                            class="flex justify-center items-center space-x-4 scroll-animation"
+                            style="transition-delay: 300ms"
+                        >
+                            <a href="#demo" class="cta-primary"
+                                >Get a live demo</a
+                            >
+                            <a
+                                href="#manifesto"
+                                class="cta-secondary router-link"
+                                data-page="manifesto"
+                                >See how it works</a
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="container mx-auto relative max-w-6xl mt-16 scroll-animation"
+                        style="transition-delay: 450ms"
+                    >
+                        <div
+                            class="rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-2xl overflow-hidden"
+                        >
+                            <div
+                                class="flex items-center justify-between px-4 py-3.5 bg-gradient-to-b from-white/10 to-transparent border-b border-white/10"
+                            >
+                                <div class="flex gap-2">
+                                    <span
+                                        class="w-2.5 h-2.5 rounded-full bg-white/20"
+                                    ></span
+                                    ><span
+                                        class="w-2.5 h-2.5 rounded-full bg-white/20"
+                                    ></span
+                                    ><span
+                                        class="w-2.5 h-2.5 rounded-full bg-white/20"
+                                    ></span>
+                                </div>
+                                <span class="text-xs text-gray-400"
+                                    >PlaceOS Studio — Skills & Automation</span
+                                >
+                            </div>
+                            <div class="p-6 grid lg:grid-cols-2 gap-6">
+                                <div class="card p-5">
+                                    <div class="kicker">Blueprint</div>
+                                    <h3
+                                        class="text-xl font-bold mt-2 mb-3 text-white"
+                                    >
+                                        Connect. Compose. Automate.
+                                    </h3>
+                                    <p class="text-gray-400 text-sm">
+                                        Drivers for AV, BMS, access control,
+                                        Wi‑Fi, sensors, and more. Drag blocks,
+                                        set conditions, and publish automations
+                                        in minutes.
+                                    </p>
+                                    <div class="grid gap-3 mt-4">
+                                        <div class="flex items-start gap-3">
+                                            <span class="pill mt-1"
+                                                >Inputs</span
+                                            >
+                                            <div class="text-gray-400 text-sm">
+                                                Occupancy • Schedules •
+                                                Temperature • Air Quality • AV
+                                                state • Visitor check‑ins
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <span class="pill mt-1">Logic</span>
+                                            <div class="text-gray-400 text-sm">
+                                                Thresholds • Timers • Presence
+                                                windows • Agent actions
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <span class="pill mt-1"
+                                                >Outputs</span
+                                            >
+                                            <div class="text-gray-400 text-sm">
+                                                Book rooms • Trigger HVAC scenes
+                                                • Digital signage • Notify in
+                                                Slack/Teams • Control AV
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card p-5">
+                                    <div class="kicker">
+                                        Energy Savings Calculator
+                                    </div>
+                                    <div class="flex flex-col gap-4 mt-3">
+                                        <label class="text-sm text-gray-300"
+                                            >Number of Rooms:
+                                            <b id="rooms-val" class="text-white"
+                                                >50</b
+                                            >
+                                            <input
+                                                id="rooms"
+                                                type="range"
+                                                min="10"
+                                                max="1000"
+                                                step="10"
+                                                value="50"
+                                                class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-1"
+                                            />
+                                        </label>
+                                        <p class="text-xs text-gray-500 -mt-2">
+                                            Based on a 20% reduction in HVAC
+                                            usage from occupancy automation.
+                                        </p>
+                                        <div
+                                            class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center"
+                                        >
+                                            <div
+                                                class="p-3 rounded-lg bg-black/20"
+                                            >
+                                                <span
+                                                    class="text-xs text-gray-400"
+                                                    >Energy Saved</span
+                                                ><b
+                                                    id="energy-savings"
+                                                    class="block text-xl text-white"
+                                                    >—</b
+                                                >
+                                            </div>
+                                            <div
+                                                class="p-3 rounded-lg bg-black/20"
+                                            >
+                                                <span
+                                                    class="text-xs text-gray-400"
+                                                    >Cost Saved</span
+                                                ><b
+                                                    id="cost-savings"
+                                                    class="block text-xl text-white"
+                                                    >—</b
+                                                >
+                                            </div>
+                                            <div
+                                                class="p-3 rounded-lg bg-black/20"
+                                            >
+                                                <span
+                                                    class="text-xs text-gray-400"
+                                                    >CO₂ Reduced</span
+                                                ><b
+                                                    id="co2-savings"
+                                                    class="block text-xl text-white"
+                                                    >—</b
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Platform Video Section -->
+                <section id="platform-video" class="py-20 md:py-28">
+                    <div class="container mx-auto px-6 text-center">
+                        <h2
+                            class="text-3xl md:text-4xl font-extrabold text-white mb-4 scroll-animation"
+                        >
+                            A Platform for Every Use Case
+                        </h2>
+                        <p
+                            class="text-lg text-gray-400 max-w-3xl mx-auto mb-12 scroll-animation"
+                            style="transition-delay: 150ms"
+                        >
+                            Watch a quick overview of how PlaceOS connects your
+                            systems, automates workflows, and creates seamless
+                            experiences for any building or campus.
+                        </p>
+                        <div
+                            class="relative max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl scroll-animation"
+                            style="padding-top: 56.25%; transition-delay: 300ms"
+                        >
+                            <iframe
+                                src="https://fast.wistia.net/embed/iframe/uj7p6mrtly?videoFoam=true"
+                                title="PlaceOS Platform Overview Video"
+                                allow="autoplay; fullscreen"
+                                allowtransparency="true"
+                                frameborder="0"
+                                scrolling="no"
+                                class="absolute top-0 left-0 w-full h-full"
+                                name="wistia_embed"
+                                msallowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-16 scroll-animation">
+                    <div class="container mx-auto px-6">
+                        <h3
+                            class="text-center text-gray-500 font-semibold uppercase tracking-wider mb-8"
+                        >
+                            Trusted by industry leaders
+                        </h3>
+                        <div
+                            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
+                        >
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=Suncorp"
+                                    alt="Suncorp Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=Nestlé"
+                                    alt="Nestle Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=UCLA"
+                                    alt="UCLA Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=Cisco"
+                                    alt="Cisco Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=Meraki"
+                                    alt="Meraki Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <div class="flex justify-center">
+                                <img
+                                    src="https://placehold.co/140x40/FFFFFF/000000?text=PwC"
+                                    alt="Microsoft Logo"
+                                    class="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Integrations Page -->
+            <div id="integrations" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <span class="kicker text-pink-400"
+                            >PlaceOS Integrations</span
+                        >
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                        >
+                            Connect Anything. Instantly.
+                        </h1>
+                        <p
+                            class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-8"
+                        >
+                            Our extensive library of drivers connects to
+                            hundreds of systems out-of-the-box, from legacy BMS
+                            to modern IoT sensors, turning siloed data into a
+                            unified stream of intelligence.
+                        </p>
+                        <p class="max-w-3xl mx-auto text-gray-400">
+                            Don't see what you need on the list?
+                            <a
+                                href="https://docs.placeos.com/placeos/tutorials/backend/write-a-driver/write-a-driver/#_top"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-accent hover:underline"
+                                >Learn how to build your own</a
+                            >
+                            or request a new integration.
+                        </p>
+                    </div>
+                </section>
+                <section class="pb-20">
+                    <div class="container mx-auto px-6">
+                        <div
+                            class="sticky top-[72px] bg-slate-900/80 backdrop-blur-lg py-4 z-20 mb-8 rounded-b-xl"
+                        >
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <input
+                                    type="text"
+                                    id="integration-search"
+                                    placeholder="Search integrations..."
+                                    class="flex-grow"
+                                />
+                            </div>
+                            <div
+                                id="integration-filters"
+                                class="flex flex-wrap gap-2 mt-4"
+                            >
+                                <!-- Filter buttons will be injected here -->
+                            </div>
+                        </div>
+                        <div
+                            id="integration-grid"
+                            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+                        >
+                            <!-- Integration cards will be injected here -->
+                        </div>
+                        <p
+                            id="no-integrations-found"
+                            class="text-center text-gray-400 py-12 hidden"
+                        >
+                            No integrations found.
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Manifesto Page -->
+            <div id="manifesto" class="page">
+                <section class="pt-32 pb-20 md:pt-40 md:pb-24">
+                    <div class="manifesto-wrap">
+                        <header class="manifesto-header">
+                            <span class="eyebrow">Manifesto</span>
+                            <h1>Connect Anything. Automate Everything.</h1>
+                            <p class="subtitle">
+                                The integration platform built to retrofit
+                                commercial building systems—without ripping
+                                anything out.
+                                <br /><span class="tagline"
+                                    >Most buildings are disconnected. PlaceOS
+                                    connects them.</span
+                                >
+                            </p>
+                        </header>
+
+                        <section class="accordion">
+                            <details open>
+                                <summary>
+                                    Why PlaceOS exists
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p class="lead">
+                                        Most commercial buildings still run on
+                                        disconnected systems—forcing IT,
+                                        facilities, and space teams into manual
+                                        workarounds and limiting the value of
+                                        existing infrastructure.
+                                    </p>
+                                    <p>
+                                        PlaceOS solves this with a massive
+                                        integration library and a modular
+                                        architecture that
+                                        <strong
+                                            >decouples the user experience from
+                                            the building stack and workflow
+                                            logic</strong
+                                        >. When you switch access control,
+                                        update occupancy monitoring, or expand
+                                        to new buildings—nothing breaks. The
+                                        experience stays consistent and reliable
+                                        so you can:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            Coordinate how people use space
+                                            using data from systems you already
+                                            have.
+                                        </li>
+                                        <li>
+                                            Scale across buildings with
+                                            different infrastructure—without
+                                            touching the front end.
+                                        </li>
+                                        <li>
+                                            Eliminate manual handoffs between
+                                            departments through automation.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Start here
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        This is a practical guide to
+                                        PlaceOS—what it is, how it works, and
+                                        why it matters. We structured it to cut
+                                        through product noise and give you a
+                                        clear picture of the architecture,
+                                        capabilities, and workflows before you
+                                        ever book a demo. Whether you’re
+                                        managing a single room or hundreds of
+                                        buildings, this should be the fastest
+                                        path to deciding if PlaceOS fits your
+                                        world.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    The problems teams solve with PlaceOS
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Hundreds of offices and campuses use
+                                        PlaceOS for occupancy management,
+                                        workplace experience, room management,
+                                        utilization reporting, hot desks,
+                                        visitor management, building automation,
+                                        campus experience, and energy savings.
+                                    </p>
+                                    <p>
+                                        If your goal is to connect systems,
+                                        create smarter workflows, and deliver
+                                        real outcomes—without rolling out new
+                                        hardware—PlaceOS is the platform to do
+                                        it.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Who uses it
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        IT, space planning, experience leads,
+                                        facilities, AV, and IoT teams—anyone
+                                        managing complexity across spaces,
+                                        systems, and software. We connect the
+                                        dots and make it all work together.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    What makes PlaceOS a platform
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Most building systems are siloed. HVAC,
+                                        AV, calendars, access control, and
+                                        sensors all speak different languages.
+                                        PlaceOS creates an
+                                        <strong>abstraction layer</strong>
+                                        across them, turning scattered systems
+                                        into usable building blocks. Once
+                                        connected, they can serve as inputs and
+                                        outputs in any workflow—like presence
+                                        detection triggering HVAC changes, or
+                                        badge swipes triggering security footage
+                                        events.
+                                    </p>
+                                    <p class="kicker">
+                                        That’s a platform: not just a tool, but
+                                        an integration layer that drives
+                                        outcomes.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    We won't sell you new hardware (you probably
+                                    don’t need it)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        You’d be surprised what you can extract
+                                        from existing systems. Many jump to new
+                                        sensors for occupancy, but your Wi-Fi
+                                        network may already hold most of what
+                                        you need. Audit what you’ve got first.
+                                        More often than not, you don’t need new
+                                        sensors—you need siloed systems to talk
+                                        to each other.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Why a platform approach matters
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        It’s a philosophy: open, agnostic, and
+                                        extensible. Like WordPress or
+                                        Salesforce, you can build solutions on
+                                        top, plug in components, or use
+                                        something off the shelf. Unlike
+                                        single-use tools, PlaceOS gives you a
+                                        foundation to connect systems, build
+                                        logic, and automate workflows. You shape
+                                        the experience without rebuilding it
+                                        every time the interface—or
+                                        <em>your</em>
+                                        hardware—changes.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Architecture: the abstraction layer (drivers
+                                    → modules → systems/zones)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        PlaceOS provides an abstraction layer
+                                        that
+                                        <strong>abstracts away</strong> the
+                                        quirks of every building system. Drivers
+                                        handle connections; modules group them
+                                        into reusable instances; logic stays
+                                        untouched when you swap tech. That’s how
+                                        you scale safely and stay future-ready.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Drivers (integration &amp; logic)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p><strong>Integration drivers</strong>:</p>
+                                    <ul>
+                                        <li>
+                                            Communicate with external systems
+                                            and let them talk to PlaceOS.
+                                        </li>
+                                        <li>
+                                            Represent hardware or software
+                                            platforms (devices or services).
+                                        </li>
+                                        <li>
+                                            Control functionality and handle
+                                            incoming data.
+                                        </li>
+                                    </ul>
+                                    <p><strong>Logic drivers</strong>:</p>
+                                    <ul>
+                                        <li>
+                                            Coordinate interactions between
+                                            modules.
+                                        </li>
+                                        <li>
+                                            Don’t map to specific physical
+                                            objects.
+                                        </li>
+                                        <li>
+                                            Represent abstract or conceptual
+                                            functions.
+                                        </li>
+                                        <li>
+                                            Can coordinate across many devices
+                                            or platforms.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        Our drivers are open source—build your
+                                        own or use what’s in the library.
+                                        <a
+                                            href="#"
+                                            aria-label="See our integration list"
+                                            >See our integration list</a
+                                        >.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Hot-swappable modules
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Modules are reusable building
+                                        blocks—live instances of drivers. They
+                                        can represent a device, a digital
+                                        service, or a set of logic. Modules
+                                        control state (e.g., power or presence)
+                                        and behavior (e.g., power a display or
+                                        create a booking). Start/stop each
+                                        individually and reuse them across
+                                        systems—shared infrastructure (like a
+                                        lighting gateway or AV switch) doesn’t
+                                        need to be rebuilt for every room.
+                                    </p>
+                                    <p>
+                                        Logic modules are special: they don’t
+                                        talk to external systems; they
+                                        coordinate internal actions and inherit
+                                        settings from zones and systems for
+                                        consistent behavior.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Scaling with zones &amp; systems
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        <strong>Systems</strong> tie together
+                                        devices, services, and logic—often
+                                        representing a room or a logical
+                                        function (like digital signage).
+                                        <strong>Zones</strong> are collections
+                                        of systems (floor, building, or
+                                        function) that share settings. Apply
+                                        broad logic at the zone level (e.g.,
+                                        building-wide HVAC) and tailor specifics
+                                        within each system. Scale from one room
+                                        to hundreds—consistently and without
+                                        rewrites.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Workflow automation with triggers &amp;
+                                    logic drivers
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Triggers add event-driven behavior
+                                        across modules without complex code.
+                                        Define actions based on state, time, or
+                                        external input (like a webhook).
+                                        Examples:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            Turn on AV when a room is booked.
+                                        </li>
+                                        <li>
+                                            Post a chat message when someone
+                                            badges in.
+                                        </li>
+                                        <li>
+                                            Adjust HVAC from real-time
+                                            occupancy.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        Create and manage triggers in
+                                        Backoffice, or pair them with more
+                                        advanced logic modules.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Decoupling frontend experience from
+                                    integrations &amp; logic
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        The interface doesn’t drive the
+                                        experience—the logic does. Use an AV
+                                        panel, a workplace app, an AI agent, or
+                                        no interface at all. PlaceOS runs
+                                        workflows in the background and keeps
+                                        behavior consistent across locations.
+                                        Swap UI without redoing the logic.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Examples of automation that deliver outcomes
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            Automate HVAC from bookings and
+                                            real-time occupancy — save ~AU$1K
+                                            per room per year.
+                                        </li>
+                                        <li>
+                                            Swipe your badge to trigger camera
+                                            footage — find moments instantly.
+                                        </li>
+                                        <li>
+                                            Auto-configure a room based on the
+                                            booker — lighting, presets, and
+                                            signage.
+                                        </li>
+                                        <li>
+                                            Use <strong>WorkMate</strong> for
+                                            out-of-the-box workplace management.
+                                        </li>
+                                        <li>
+                                            Use <strong>Stagehand</strong> for
+                                            simplified AV control (panel, web,
+                                            voice, or fully automated).
+                                        </li>
+                                        <li>
+                                            Use
+                                            <strong>VirtualCare</strong> for
+                                            remote check-ins and hybrid support
+                                            in healthcare or campuses.
+                                        </li>
+                                    </ul>
+                                    <p class="kicker">
+                                        Everything can be a trigger. Every
+                                        system can be part of a workflow.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Why other tools don’t cut it
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            Custom middleware: slow, brittle,
+                                            expensive to maintain.
+                                        </li>
+                                        <li>
+                                            Vendor-locked apps: can’t extend or
+                                            integrate.
+                                        </li>
+                                        <li>
+                                            Dashboards only: good for viewing,
+                                            not doing.
+                                        </li>
+                                        <li>
+                                            Doing nothing: keeps everything
+                                            disconnected.
+                                        </li>
+                                        <li>
+                                            SaaS-only tools: hard-coded logic,
+                                            no flexibility.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Why PlaceOS is different
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            <strong
+                                                >Composable architecture</strong
+                                            >: swap parts without breaking
+                                            workflows.
+                                        </li>
+                                        <li>
+                                            <strong>Open-source drivers</strong
+                                            >: no vendor lock-in, faster
+                                            integrations.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Separated logic &amp;
+                                                interface</strong
+                                            >: survives tech churn.
+                                        </li>
+                                        <li>
+                                            <strong>UI-agnostic</strong>: works
+                                            with LLMs, CV, APIs—or no UI.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Flexible business model</strong
+                                            >: SaaS, usage-based, or
+                                            license-ready.
+                                        </li>
+                                        <li>
+                                            <strong>Agent-ready</strong>: AI
+                                            agents can control any system via
+                                            drivers.
+                                        </li>
+                                    </ul>
+                                    <p class="kicker">
+                                        Build, scale, and adapt—without getting
+                                        boxed in.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Start anywhere (and small is fine)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Start small. Prove value. Scale fast.
+                                        You don’t need a huge rollout—begin with
+                                        one workflow (e.g., HVAC automation or
+                                        linking AV to your calendar) and grow
+                                        from there. Proof in week one, not year
+                                        two. Small changes can have massive
+                                        impact (energy savings ~AU$1K per room
+                                        per year). No forklift upgrade: use what
+                                        you’ve got, and we’ll make it work
+                                        harder.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Apps suck (but yeah, we’ve got some)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        We’ve built apps like
+                                        <strong>WorkMate</strong> that are ready
+                                        to go—bundling common problems and
+                                        tapping native tech (Bluetooth, NFC,
+                                        UWB). But the real power is beneath:
+                                        deep integrations, smart workflows, and
+                                        modular interfaces. Our apps sit on the
+                                        platform, so they inherit hot-swappable
+                                        modules and logic. When the next
+                                        interface lands—glasses, wearables,
+                                        whatever’s next—we’re there, because
+                                        we’ve decoupled the front end from the
+                                        brains.
+                                    </p>
+                                    <p><strong>Apps:</strong></p>
+                                    <ul>
+                                        <li>
+                                            <strong>WorkMate</strong>: workplace
+                                            management with out-of-the-box
+                                            simplicity + enterprise-level
+                                            configuration.
+                                        </li>
+                                        <li>
+                                            <strong>Stagehand</strong>: remote
+                                            AV control without third-party
+                                            controllers.
+                                        </li>
+                                        <li>
+                                            <strong>VirtualCare</strong>: one
+                                            system for consults, surveys,
+                                            referrals, Medicare billing,
+                                            education, and follow-ups.
+                                        </li>
+                                        <li>
+                                            <strong>Room booking (Free)</strong
+                                            >: search, view, and book by
+                                            availability, size, features, and
+                                            location.
+                                        </li>
+                                        <li>
+                                            <strong>Room booking (Basic)</strong
+                                            >: works with any calendar,
+                                            conferencing, occupancy sensors, AV,
+                                            and network.
+                                        </li>
+                                        <li>
+                                            <strong>Desk booking</strong>:
+                                            configurable desk management at
+                                            scale—no hardware lock-in.
+                                        </li>
+                                        <li>
+                                            <strong>Visitor management</strong>:
+                                            send the invite—everything else is
+                                            automated.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Occupancy-based energy</strong
+                                            >: align energy use with actual
+                                            occupancy.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    “We already have devs—why not build it
+                                    ourselves?”
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Great! That’s better than getting locked
+                                        into rigid, hard-coded apps. PlaceOS
+                                        gives you the best of both worlds: a
+                                        head start so your team can focus on
+                                        unique challenges without diving into
+                                        device-level protocol hell.
+                                    </p>
+                                    <p>
+                                        Our integration drivers connect to
+                                        hundreds of vendors and core building
+                                        protocols (BACnet, Modbus, KNX, and
+                                        more). We handle device integrations,
+                                        zone management, and system
+                                        coordination, so you can get straight to
+                                        building.
+                                    </p>
+                                    <p>
+                                        Your scoping question changes:
+                                        <em
+                                            >What do you want to build, knowing
+                                            you can connect everything?</em
+                                        >
+                                        Extend with new drivers. Contribute to
+                                        our open-source libraries. Ask us about
+                                        using a non-commercial version for a
+                                        side project. We’re built for
+                                        developers—everything you need is on
+                                        GitHub and in our Docs.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Built on Crystal for speed, safety, and
+                                    scale
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        PlaceOS is developed largely in
+                                        <strong>Crystal</strong>, blending
+                                        Ruby-like ergonomics with C-like
+                                        performance. We move fast without
+                                        compromising reliability: strong typing,
+                                        reusable services, and performance that
+                                        scales from a single room to
+                                        enterprise-wide deployments.
+                                    </p>
+                                    <p>
+                                        Our backend stack is Crystal
+                                        end-to-end—from open-source drivers to
+                                        our web framework
+                                        <strong>Spider-Gazelle</strong>. We
+                                        generate accurate API docs
+                                        automatically, run efficiently on
+                                        minimal infrastructure, and support
+                                        lightweight edge deployments for
+                                        bandwidth-constrained environments.
+                                        That’s why PlaceOS feels fast and
+                                        consistent—in the cloud, on-prem, or on
+                                        a network switch.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Pricing models that suit your business
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        SaaS, usage-based, or perpetual
+                                        licensing—we support it all. We’ll work
+                                        with your procurement process so it fits
+                                        how you buy.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Flexible delivery: cloud, on-prem, &amp;
+                                    hybrid
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Run PlaceOS wherever it makes sense. For
+                                        high-security environments, everything
+                                        can run on-prem so your data remains
+                                        protected. We don’t store your data.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Plugs into what you’ve already got (no
+                                    rip-and-replace)
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        PlaceOS replaces nothing—unless you want
+                                        it to. It plugs into what you already
+                                        have.
+                                    </p>
+                                </div>
+                            </details>
+
+                            <details>
+                                <summary>
+                                    Future-proof by design
+                                    <span class="chev" aria-hidden="true"
+                                        >⌄</span
+                                    >
+                                </summary>
+                                <div class="content">
+                                    <p>
+                                        Built for what’s next, not just what’s
+                                        now. PlaceOS isn’t tied to any single
+                                        interface or technology.
+                                    </p>
+                                </div>
+                            </details>
+                        </section>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Product Pages -->
+            <div id="workmate" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <div class="text-center">
+                            <span class="kicker text-accent">WorkMate</span>
+                            <h1
+                                class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                            >
+                                The modern workplace experience.
+                            </h1>
+                            <p
+                                class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-12"
+                            >
+                                WorkMate is the first workplace management
+                                system to combine out-of-the-box simplicity with
+                                enterprise-level configuration & scalability.
+                                Manage bookings, visitors, and wayfinding with a
+                                seamless mobile-first UX and automation in the
+                                background.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center gap-12 mt-12">
+                            <!-- WorkMate Includes table -->
+                            <aside
+                                id="workmate-includes"
+                                class="card p-6 w-full max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-2xl shadow-2xl"
+                            >
+                                <div
+                                    class="flex items-center justify-between mb-4"
+                                >
+                                    <h3
+                                        class="text-xl font-extrabold text-white"
+                                    >
+                                        WorkMate Includes
+                                    </h3>
+                                </div>
+
+                                <div
+                                    class="overflow-hidden rounded-xl border border-white/10"
+                                >
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-white/5">
+                                            <tr class="text-gray-300">
+                                                <th
+                                                    class="px-4 py-3 font-semibold w-48"
+                                                >
+                                                    Module
+                                                </th>
+                                                <th
+                                                    class="px-4 py-3 font-semibold"
+                                                >
+                                                    Capabilities
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/10">
+                                            <!-- Employee App -->
+                                            <tr>
+                                                <td
+                                                    class="align-top px-4 py-4 font-semibold text-white"
+                                                >
+                                                    Employee App
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-gray-300"
+                                                >
+                                                    <ul
+                                                        class="list-disc pl-5 space-y-1"
+                                                    >
+                                                        <li>
+                                                            <span
+                                                                class="text-gray-400"
+                                                                >Find /
+                                                                book:</span
+                                                            >
+                                                            Rooms, Desks,
+                                                            Lockers, Events,
+                                                            Carparking
+                                                        </li>
+                                                        <li>
+                                                            Add assets &
+                                                            catering requests to
+                                                            bookings
+                                                        </li>
+                                                        <li>
+                                                            Virtual access card
+                                                            for building,
+                                                            end-of-trip &
+                                                            floors/rooms
+                                                        </li>
+                                                        <li>
+                                                            Invite visitors &
+                                                            add visitors to
+                                                            bookings
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Concierge Interface -->
+                                            <tr>
+                                                <td
+                                                    class="align-top px-4 py-4 font-semibold text-white"
+                                                >
+                                                    Concierge Interface
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-gray-300"
+                                                >
+                                                    <ul
+                                                        class="list-disc pl-5 space-y-1"
+                                                    >
+                                                        <li>
+                                                            Manage app settings:
+                                                            roles, access
+                                                            levels, features &
+                                                            branding
+                                                        </li>
+                                                        <li>
+                                                            Approve, reallocate
+                                                            & view booking
+                                                            details
+                                                        </li>
+                                                        <li>
+                                                            Facilitate asset &
+                                                            catering requests
+                                                        </li>
+                                                        <li>
+                                                            Manage asset
+                                                            catalogue, catering
+                                                            menu & room
+                                                            allocation rules
+                                                        </li>
+                                                        <li>
+                                                            Manage & facilitate
+                                                            visitors
+                                                        </li>
+                                                        <li>
+                                                            Rules on spaces:
+                                                            release times, group
+                                                            policies, capacity
+                                                        </li>
+                                                        <li>
+                                                            Usage reports &
+                                                            insights
+                                                        </li>
+                                                        <li>
+                                                            Create email
+                                                            templates with
+                                                            dynamic triggers
+                                                        </li>
+                                                        <li>
+                                                            Manage, send & view
+                                                            survey reports;
+                                                            trigger surveys on
+                                                            actions (e.g., desk
+                                                            check-in)
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Workflows -->
+                                            <tr>
+                                                <td
+                                                    class="align-top px-4 py-4 font-semibold text-white"
+                                                >
+                                                    Workflows
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-gray-300"
+                                                >
+                                                    <ul
+                                                        class="list-disc pl-5 space-y-1"
+                                                    >
+                                                        <li>
+                                                            Auto-add external
+                                                            meeting attendees to
+                                                            visitor management
+                                                        </li>
+                                                        <li>
+                                                            Control AV, lighting
+                                                            & HVAC based on
+                                                            booking status
+                                                        </li>
+                                                        <li>
+                                                            Auto check-in to
+                                                            rooms via location
+                                                            tracking (Wi-Fi,
+                                                            camera or sensor)
+                                                        </li>
+                                                        <li>
+                                                            Link access control
+                                                            to bookings (unlock
+                                                            on start, lock on
+                                                            end when unoccupied)
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Tablets & Kiosks -->
+                                            <tr>
+                                                <td
+                                                    class="align-top px-4 py-4 font-semibold text-white"
+                                                >
+                                                    Tablets & Kiosks
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-gray-300"
+                                                >
+                                                    <ul
+                                                        class="list-disc pl-5 space-y-1"
+                                                    >
+                                                        <li>
+                                                            Room booking &
+                                                            information panel —
+                                                            runs on any
+                                                            web-enabled hardware
+                                                        </li>
+                                                        <li>
+                                                            Visitor Check-in
+                                                            Kiosk — scan QR from
+                                                            welcome email or
+                                                            search name; print
+                                                            badges
+                                                        </li>
+                                                        <li>
+                                                            Workflow Kiosks —
+                                                            live room/desk
+                                                            availability on
+                                                            floor plan; ad-hoc
+                                                            bookings
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </aside>
+
+                            <!-- Video Section -->
+                            <div class="w-full max-w-5xl mx-auto mt-12">
+                                <div
+                                    class="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                                    style="padding-top: 56.25%"
+                                >
+                                    <!-- 16:9 Aspect Ratio -->
+                                    <iframe
+                                        src="https://fast.wistia.net/embed/iframe/iu6ry0r24v?videoFoam=true"
+                                        title="WorkMate Video"
+                                        allow="autoplay; fullscreen"
+                                        allowtransparency="true"
+                                        frameborder="0"
+                                        scrolling="no"
+                                        class="absolute top-0 left-0 w-full h-full"
+                                        name="wistia_embed"
+                                        msallowfullscreen
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-20 bg-black/20"></section>
+            </div>
+            <div id="stagehand" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <span class="kicker text-accent">StageHand</span>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                        >
+                            Simplified AV control.
+                        </h1>
+                        <p
+                            class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-12"
+                        >
+                            Take control of any room with StageHand. Our
+                            solution offers remote AV control that works without
+                            third-party controllers, accessible from a touch
+                            panel, web browser, or even voice commands.
+                        </p>
+
+                        <!-- Stagehand Includes Table -->
+                        <aside
+                            id="stagehand-includes"
+                            class="card p-6 w-full max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-2xl shadow-2xl mb-12 text-left"
+                        >
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-extrabold text-white">
+                                    Stagehand Includes
+                                </h3>
+                            </div>
+
+                            <div
+                                class="overflow-hidden rounded-xl border border-white/10"
+                            >
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-white/5">
+                                        <tr class="text-gray-300">
+                                            <th
+                                                class="px-4 py-3 font-semibold w-48"
+                                            >
+                                                Category
+                                            </th>
+                                            <th class="px-4 py-3 font-semibold">
+                                                Capabilities
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/10">
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                General
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Access to all our AV
+                                                        drivers and the ability
+                                                        to write new drivers
+                                                        (DIY or as a service by
+                                                        PlaceOS)
+                                                    </li>
+                                                    <li>
+                                                        You can now write new
+                                                        drivers with Claud Code
+                                                        (AI prompting)
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                Interfaces
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        <strong
+                                                            >Stagehand:</strong
+                                                        >
+                                                        remote support and issue
+                                                        management. A focus on
+                                                        first-level support for
+                                                        AV spaces.
+                                                    </li>
+                                                    <li>
+                                                        <strong
+                                                            >Room
+                                                            control:</strong
+                                                        >
+                                                        A web-based room control
+                                                        interface that
+                                                        automatically builds
+                                                        based on the inputs and
+                                                        outputs in your system
+                                                        settings. Run on any
+                                                        web-based tablet- or
+                                                        launch from a QR code.
+                                                    </li>
+                                                    <li>
+                                                        <strong
+                                                            >Back
+                                                            office:</strong
+                                                        >
+                                                        for second and
+                                                        third-level support -
+                                                        and setting up new
+                                                        systems.
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                Workflows
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Automatically turn on
+                                                        the AV system at the
+                                                        start of a timetable or
+                                                        schedule event.
+                                                    </li>
+                                                    <li>
+                                                        Automatically turn on
+                                                        the AV system when a
+                                                        person is detected
+                                                        through several
+                                                        supported location
+                                                        services.
+                                                    </li>
+                                                    <li>
+                                                        Link the timetable and
+                                                        scheduling data to
+                                                        access control- unlock
+                                                        doors at the start of
+                                                        the booking event.
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </aside>
+
+                        <!-- Stagehand Interactive Demo -->
+                        <div
+                            class="hidden md:block relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl mb-12"
+                            style="height: 700px"
+                        >
+                            <iframe
+                                src="https://aca.im/demo/aca/control/"
+                                title="StageHand Interactive Demo"
+                                allowtransparency="true"
+                                frameborder="0"
+                                scrolling="no"
+                                class="w-full h-full"
+                            ></iframe>
+                        </div>
+
+                        <div
+                            class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                            style="padding-top: 56.25%"
+                        >
+                            <iframe
+                                src="https://fast.wistia.net/embed/iframe/rh3qym3420?videoFoam=true"
+                                title="StageHand Video"
+                                allow="autoplay; fullscreen"
+                                allowtransparency="true"
+                                frameborder="0"
+                                scrolling="no"
+                                class="absolute top-0 left-0 w-full h-full"
+                                name="wistia_embed"
+                                msallowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="backoffice" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <span class="kicker text-accent">Backoffice</span>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                        >
+                            Our deepest level of control for every building,
+                            every device and every setting.
+                        </h1>
+                        <p
+                            class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-12"
+                        >
+                            Backoffice is where you configure drivers, define
+                            systems and zones, and monitor the health of your
+                            connected environment. It's for the power user- but
+                            even if you are not using it directly- it's powering
+                            everything we do.
+                        </p>
+
+                        <!-- Backoffice — What’s Included -->
+                        <aside
+                            id="backoffice-includes"
+                            class="card p-6 w-full max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-2xl shadow-2xl mb-12 text-left"
+                        >
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-extrabold text-white">
+                                    Backoffice — What’s Included
+                                </h3>
+                            </div>
+
+                            <div
+                                class="overflow-hidden rounded-xl border border-white/10"
+                            >
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-white/5">
+                                        <tr class="text-gray-300">
+                                            <th
+                                                class="px-4 py-3 font-semibold w-48"
+                                            >
+                                                Area
+                                            </th>
+                                            <th class="px-4 py-3 font-semibold">
+                                                Capabilities
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/10">
+                                        <!-- General Admin -->
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                General Admin
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Map code repositories
+                                                        (UIs and driver
+                                                        libraries) to your
+                                                        PlaceOS instance
+                                                    </li>
+                                                    <li>
+                                                        Set up the MQTT broker
+                                                        to stream data from
+                                                        PlaceOS integrations
+                                                        into third-party data
+                                                        tools
+                                                    </li>
+                                                    <li>
+                                                        Monitor server
+                                                        environment usage with
+                                                        built-in dashboards
+                                                    </li>
+                                                    <li>
+                                                        Map AD groups to user
+                                                        preferences
+                                                    </li>
+                                                    <li>
+                                                        Manage domain settings
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Zones -->
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                Zones
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Set up global &amp;
+                                                        local settings in the
+                                                        zone hierarchy (e.g.,
+                                                        Organisation → Building
+                                                        → Floor → Room/System
+                                                        type)
+                                                    </li>
+                                                    <li>
+                                                        Manage metadata at each
+                                                        level; systems inherit
+                                                        metadata from all joined
+                                                        zones
+                                                    </li>
+                                                    <li>
+                                                        Plot sensors from BACnet
+                                                        on the floor plan
+                                                    </li>
+                                                    <li>
+                                                        Manage capacity mapping
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Drivers -->
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                Drivers
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Pull drivers from
+                                                        open-source and private
+                                                        repositories
+                                                    </li>
+                                                    <li>
+                                                        Apply driver-wide
+                                                        settings and metadata
+                                                    </li>
+                                                    <li>
+                                                        View all instances of
+                                                        drivers (link to
+                                                        Modules)
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Modules -->
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                Modules
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        Apply local settings for
+                                                        a specific instance
+                                                        (e.g., IP address &amp;
+                                                        metadata)
+                                                    </li>
+                                                    <li>
+                                                        View the location of
+                                                        each module (link to
+                                                        Systems)
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <!-- System -->
+                                        <tr>
+                                            <td
+                                                class="align-top px-4 py-4 font-semibold text-white"
+                                            >
+                                                System
+                                            </td>
+                                            <td class="px-4 py-4 text-gray-300">
+                                                <ul
+                                                    class="list-disc pl-5 space-y-1"
+                                                >
+                                                    <li>
+                                                        See all merged settings
+                                                        from zones and apply
+                                                        local overrides
+                                                    </li>
+                                                    <li>
+                                                        Manage local metadata
+                                                    </li>
+                                                    <li>
+                                                        Apply triggers for
+                                                        automation within the
+                                                        system
+                                                    </li>
+                                                    <li>
+                                                        Add modules to systems
+                                                        with local settings
+                                                    </li>
+                                                    <li>
+                                                        View the live state of
+                                                        modules
+                                                    </li>
+                                                    <li>
+                                                        Execute commands on
+                                                        modules
+                                                    </li>
+                                                    <li>
+                                                        Open the browser console
+                                                        to inspect modules in
+                                                        debug mode
+                                                    </li>
+                                                    <li>
+                                                        View interfaces
+                                                        associated with the
+                                                        system
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </aside>
+
+                        <div
+                            class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                            style="padding-top: 56.25%"
+                        >
+                            <iframe
+                                src="https://fast.wistia.net/embed/iframe/bnz61a0wfw?videoFoam=true"
+                                title="Backoffice Video"
+                                allow="autoplay; fullscreen"
+                                allowtransparency="true"
+                                frameborder="0"
+                                scrolling="no"
+                                class="absolute top-0 left-0 w-full h-full"
+                                name="wistia_embed"
+                                msallowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="studio" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <span class="kicker text-accent"
+                            >Studio (Coming Soon)</span
+                        >
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                        >
+                            Visual workflow automation.
+                        </h1>
+                        <p
+                            class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-12"
+                        >
+                            Design, test, and deploy complex automations with an
+                            intuitive drag-and-drop interface. Studio will
+                            empower your operations teams to build powerful
+                            workflows without writing a line of code.
+                        </p>
+                        <img
+                            src="studio.png"
+                            alt="Studio No-Code Interface"
+                            class="rounded-2xl shadow-2xl border border-white/10 w-full"
+                        />
+                    </div>
+                </section>
+            </div>
+            <div id="lenspath" class="page">
+                <section
+                    class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden"
+                >
+                    <div class="container mx-auto px-6 relative z-10">
+                        <span class="kicker text-accent">LensPath</span>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4"
+                        >
+                            The computer vision tool that turns any camera feed
+                            into real-time actions.
+                        </h1>
+                        <p
+                            class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-12"
+                        >
+                            LensPath is the no-code computer vision automation
+                            platform that connects to your existing camera
+                            systems, detects events in real time, and triggers
+                            automated actions in your facility.
+                        </p>
+                    </div>
+                </section>
+
+                <div class="container mx-auto px-6 my-16">
+                    <div
+                        class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                        style="padding-top: 56.25%"
+                    >
+                        <iframe
+                            src="https://fast.wistia.net/embed/iframe/6x5wyxi7jw?videoFoam=true"
+                            title="LensPath Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="absolute top-0 left-0 w-full h-full"
+                            name="wistia_embed"
+                            msallowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+
+                <section class="pb-20 md:pb-28">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center max-w-3xl mx-auto">
+                            <h2
+                                class="text-3xl md:text-4xl font-extrabold text-white mb-4"
+                            >
+                                Your most valuable data is hiding in plain sight
+                            </h2>
+                            <p class="text-lg text-gray-400">
+                                You have hundreds, maybe thousands, of cameras
+                                across your facilities. Right now, they’re
+                                passive observers—used to record incidents and
+                                review them later. This reactive approach means
+                                slow human response, high labor costs, and
+                                missed opportunities to prevent problems before
+                                they escalate.
+                            </p>
+                            <p class="text-xl text-white font-semibold mt-6">
+                                What if your existing infrastructure could do
+                                the work for you, instantly?
+                            </p>
+                        </div>
+
+                        <div class="mt-20">
+                            <h3
+                                class="text-2xl md:text-3xl font-extrabold text-white text-center mb-4"
+                            >
+                                From Passive Observation to Automated Action
+                            </h3>
+                            <p
+                                class="text-center text-gray-400 max-w-2xl mx-auto mb-12"
+                            >
+                                LensPath empowers operations, security, and
+                                facilities teams to trigger real-world actions
+                                using what your cameras already see—without new
+                                hardware or writing code.
+                            </p>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+                            >
+                                <div class="card p-6">
+                                    <h4
+                                        class="font-bold text-white text-lg mb-2"
+                                    >
+                                        Replace Manual Monitoring
+                                    </h4>
+                                    <p class="text-sm text-gray-400">
+                                        Detect events like spills, unauthorized
+                                        access, or vehicle arrivals and
+                                        automatically trigger responses like
+                                        cleaning dispatch, door unlocks, or
+                                        security alerts.
+                                    </p>
+                                </div>
+                                <div class="card p-6">
+                                    <h4
+                                        class="font-bold text-white text-lg mb-2"
+                                    >
+                                        Build Logic Without Code
+                                    </h4>
+                                    <p class="text-sm text-gray-400">
+                                        Use a drag-and-drop workflow builder to
+                                        link visual triggers to actions—like
+                                        sending messages, adjusting lighting, or
+                                        activating systems through PlaceOS.
+                                    </p>
+                                </div>
+                                <div class="card p-6">
+                                    <h4
+                                        class="font-bold text-white text-lg mb-2"
+                                    >
+                                        Test Before You Go Live
+                                    </h4>
+                                    <p class="text-sm text-gray-400">
+                                        Run your automations in simulation mode
+                                        using live or recorded feeds. Validate
+                                        logic, tune settings, and deploy with
+                                        confidence.
+                                    </p>
+                                </div>
+                                <div class="card p-6">
+                                    <h4
+                                        class="font-bold text-white text-lg mb-2"
+                                    >
+                                        Use Your Existing Cameras
+                                    </h4>
+                                    <p class="text-sm text-gray-400">
+                                        LensPath works with standard IP cameras
+                                        and requires no vendor lock-in,
+                                        leveraging the infrastructure you
+                                        already own.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-20">
+                            <h3
+                                class="text-2xl md:text-3xl font-extrabold text-white text-center mb-12"
+                            >
+                                Built for the teams who keep buildings running
+                            </h3>
+                            <div
+                                class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+                            >
+                                <div class="text-center">
+                                    <div class="text-4xl mb-4">🏢</div>
+                                    <h4
+                                        class="font-bold text-white text-xl mb-2"
+                                    >
+                                        For Facilities & Operations
+                                    </h4>
+                                    <p class="text-gray-400">
+                                        Dispatch cleaning based on foot traffic
+                                        or spills. Adjust HVAC and lighting
+                                        based on occupancy detected through
+                                        video.
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-4xl mb-4">🛡️</div>
+                                    <h4
+                                        class="font-bold text-white text-xl mb-2"
+                                    >
+                                        For Security Teams
+                                    </h4>
+                                    <p class="text-gray-400">
+                                        Detect unauthorized access, automate
+                                        gate control, or get alerts on loitering
+                                        and other suspicious behavior.
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-4xl mb-4">👋</div>
+                                    <h4
+                                        class="font-bold text-white text-xl mb-2"
+                                    >
+                                        For Visitor Experience
+                                    </h4>
+                                    <p class="text-gray-400">
+                                        Trigger greetings, personalized signage,
+                                        or queue management without needing app
+                                        installs or manual check-ins.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Common Demo Section for all pages -->
+            <section
+                id="demo"
+                class="py-20 md:py-32 bg-gradient-to-br from-pink-900/20 via-transparent to-indigo-900/20"
+            >
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2
+                            class="text-4xl md:text-5xl font-extrabold text-white mb-4 scroll-animation"
+                        >
+                            See PlaceOS in action.
+                        </h2>
+                        <p
+                            class="text-lg text-gray-300 scroll-animation"
+                            style="transition-delay: 150ms"
+                        >
+                            Tell us about your environment and we’ll tailor a
+                            demo to solve your specific challenges and deliver
+                            measurable ROI.
+                        </p>
+                    </div>
+                    <div id="demo-form-container" class="max-w-xl mx-auto">
+                        <form
+                            id="demo-form"
+                            class="card p-8 scroll-animation"
+                            style="transition-delay: 300ms"
+                        >
+                            <div class="space-y-5">
+                                <div class="grid sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label
+                                            for="name"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Full Name</label
+                                        ><input
+                                            type="text"
+                                            name="name"
+                                            id="name"
+                                            required
+                                            placeholder="Alex Smith"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="email"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Work Email</label
+                                        ><input
+                                            type="email"
+                                            name="email"
+                                            id="email"
+                                            required
+                                            placeholder="alex@company.com"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        for="company"
+                                        class="block text-sm font-medium text-gray-300 mb-1"
+                                        >Company</label
+                                    ><input
+                                        type="text"
+                                        name="company"
+                                        id="company"
+                                        placeholder="Acme Corp"
+                                    />
+                                </div>
+                                <div
+                                    class="grid grid-cols-2 md:grid-cols-4 gap-5"
+                                >
+                                    <div>
+                                        <label
+                                            for="buildings"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Buildings</label
+                                        >
+                                        <input
+                                            type="number"
+                                            name="buildings"
+                                            id="buildings"
+                                            placeholder="1"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="floors"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Floors</label
+                                        >
+                                        <input
+                                            type="number"
+                                            name="floors"
+                                            id="floors"
+                                            placeholder="10"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="form-rooms"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Rooms</label
+                                        >
+                                        <input
+                                            type="number"
+                                            name="form-rooms"
+                                            id="form-rooms"
+                                            placeholder="50"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="desks"
+                                            class="block text-sm font-medium text-gray-300 mb-1"
+                                            >Desks</label
+                                        >
+                                        <input
+                                            type="number"
+                                            name="desks"
+                                            id="desks"
+                                            placeholder="200"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1"
+                                    >
+                                        <label
+                                            for="message"
+                                            class="block text-sm font-medium text-gray-300"
+                                            >What would you like to
+                                            achieve?</label
+                                        >
+                                    </div>
+                                    <textarea
+                                        name="message"
+                                        id="message"
+                                        rows="3"
+                                        placeholder="e.g., consolidate booking, automate AV power..."
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <button
+                                        type="submit"
+                                        id="demo-submit-button"
+                                        class="cta-primary w-full justify-center text-lg py-3.5"
+                                    >
+                                        Request Demo
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div
+                            id="demo-success-message"
+                            class="card p-8 text-center hidden"
+                        >
+                            <!-- Personalized content will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black/50 border-t border-white/10">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="col-span-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class="w-[30px] h-[30px] inline-grid place-items-center rounded-lg bg-[conic-gradient(from_210deg,var(--brand),#f07,var(--accent))]"
+                            ></div>
+                            <span class="text-2xl font-bold text-white"
+                                >PlaceOS</span
+                            >
+                        </div>
+                        <p class="text-gray-400 max-w-sm text-sm">
+                            The open integration and automation platform for
+                            smart buildings.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="kicker mb-4">Product</h5>
+                        <nav class="space-y-2">
+                            <a
+                                href="#workmate"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="workmate"
+                                >WorkMate</a
+                            >
+                            <a
+                                href="#stagehand"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="stagehand"
+                                >StageHand</a
+                            >
+                            <a
+                                href="#backoffice"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="backoffice"
+                                >Backoffice</a
+                            >
+                            <a
+                                href="#lenspath"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="lenspath"
+                                >LensPath</a
+                            >
+                            <a
+                                href="#studio"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="studio"
+                                >Studio</a
+                            >
+                        </nav>
+                    </div>
+                    <div>
+                        <h5 class="kicker mb-4">Developers</h5>
+                        <nav class="space-y-2">
+                            <a
+                                href="https://docs.placeos.com/"
+                                target="_blank"
+                                class="block text-gray-400 hover:text-white text-sm"
+                                >Technical Docs</a
+                            >
+                            <a
+                                href="https://github.com/placeos"
+                                target="_blank"
+                                class="block text-gray-400 hover:text-white text-sm"
+                                >PlaceOS Github</a
+                            >
+                        </nav>
+                    </div>
+                </div>
+                <div
+                    class="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+                >
+                    <p class="text-gray-500 text-sm">
+                        &copy; <span id="year"></span> Place Technology Group.
+                        All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-500 hover:text-white"
+                            ><span class="sr-only">Twitter</span
+                            ><svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                                ></path></svg
+                        ></a>
+                        <a href="#" class="text-gray-500 hover:text-white"
+                            ><span class="sr-only">LinkedIn</span
+                            ><svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                ></path></svg
+                        ></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // --- Element Declarations ---
+                const pages = document.querySelectorAll(".page");
+                const navLinks = document.querySelectorAll(".router-link");
+                const mobileMenuButton =
+                    document.getElementById("mobile-menu-button");
+                const mobileMenu = document.getElementById("mobile-menu");
+                const header = document.getElementById("header");
+                const scrollElements =
+                    document.querySelectorAll(".scroll-animation");
+                const roomsSlider = document.getElementById("rooms");
+                const roomsVal = document.getElementById("rooms-val");
+                const energySavingsEl =
+                    document.getElementById("energy-savings");
+                const costSavingsEl = document.getElementById("cost-savings");
+                const co2SavingsEl = document.getElementById("co2-savings");
+                const demoForm = document.getElementById("demo-form");
+                const demoSubmitButton =
+                    document.getElementById("demo-submit-button");
+                const demoSuccessMessage = document.getElementById(
+                    "demo-success-message",
+                );
+                const suggestIdeasButton = document.getElementById(
+                    "suggest-ideas-button",
+                );
+                const integrationSearch =
+                    document.getElementById("integration-search");
+                const integrationFilters = document.getElementById(
+                    "integration-filters",
+                );
+                const integrationGrid =
+                    document.getElementById("integration-grid");
+                const noIntegrationsFound = document.getElementById(
+                    "no-integrations-found",
+                );
+
+                // --- Page Router ---
+                function showPage(pageId) {
+                    const targetId = pageId || "homepage";
+                    pages.forEach((page) => {
+                        page.classList.toggle("active", page.id === targetId);
+                    });
+                    window.scrollTo(0, 0);
+                    mobileMenu.classList.add("hidden");
+                }
+
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const pageId = link.dataset.page;
+                        history.pushState({ page: pageId }, null, `#${pageId}`);
+                        showPage(pageId);
+                    });
+                });
+
+                window.addEventListener("popstate", (e) => {
+                    showPage(e.state ? e.state.page : "homepage");
+                });
+
+                // Initial page load
+                const initialPage = window.location.hash.substring(1);
+                showPage(initialPage);
+
+                // --- Mobile menu ---
+                mobileMenuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+
+                // --- Scroll animations ---
+                const elementInView = (el, dividend = 1) => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    return (
+                        elementTop <=
+                        (window.innerHeight ||
+                            document.documentElement.clientHeight) /
+                            dividend
+                    );
+                };
+                const displayScrollElement = (element) => {
+                    element.classList.add("animate");
+                };
+                const handleScrollAnimation = () => {
+                    scrollElements.forEach((el) => {
+                        if (elementInView(el, 1.15)) {
+                            displayScrollElement(el);
+                        }
+                    });
+                };
+                window.addEventListener("scroll", handleScrollAnimation);
+                handleScrollAnimation(); // Run on load
+
+                // --- Header background on scroll ---
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 20) {
+                        header.style.background = "rgba(11,15,20,0.7)";
+                        header.style.backdropFilter =
+                            "saturate(140%) blur(10px)";
+                        header.style.borderBottom =
+                            "1px solid rgba(255,255,255,0.06)";
+                    } else {
+                        header.style.background = "transparent";
+                        header.style.backdropFilter = "none";
+                        header.style.borderBottom = "1px solid transparent";
+                    }
+                });
+
+                // --- Energy Savings Calculator ---
+                function format(n, unit = "") {
+                    return (
+                        n.toLocaleString(undefined, {
+                            maximumFractionDigits: 0,
+                        }) + unit
+                    );
+                }
+                function dollars(n) {
+                    return n.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        maximumFractionDigits: 0,
+                    });
+                }
+
+                function computeEnergySavings() {
+                    if (!roomsSlider) return;
+                    const avgRoomSizeSqm = 200;
+                    const energyUI_kWh_per_sqm = 265.9;
+                    const hvacReduction = 0.2;
+                    const avgEnergyPrice_per_kWh = 0.12;
+                    const co2EmissionFactor_kg_per_kWh = 0.217;
+                    const numRooms = +roomsSlider.value;
+                    const totalSqm = numRooms * avgRoomSizeSqm;
+                    const totalEnergySaved_kWh =
+                        totalSqm * energyUI_kWh_per_sqm * hvacReduction;
+                    const totalCostSaved =
+                        totalEnergySaved_kWh * avgEnergyPrice_per_kWh;
+                    const totalCo2Saved_tonnes =
+                        (totalEnergySaved_kWh * co2EmissionFactor_kg_per_kWh) /
+                        1000;
+
+                    roomsVal.textContent = format(numRooms);
+                    energySavingsEl.textContent = format(
+                        totalEnergySaved_kWh / 1000,
+                        " MWh",
+                    );
+                    costSavingsEl.textContent = dollars(totalCostSaved);
+                    co2SavingsEl.textContent = format(
+                        totalCo2Saved_tonnes,
+                        " tonnes",
+                    );
+                }
+
+                if (roomsSlider) {
+                    roomsSlider.addEventListener("input", computeEnergySavings);
+                    computeEnergySavings();
+                }
+
+                // --- Live Demo Form with Google Sheets ---
+                if (demoForm) {
+                    demoForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const scriptURL =
+                            "https://script.google.com/macros/s/AKfycbyp2JEQDD3CdFzWqgVykAXjsrVXzAXYOGjU9NdVp_3AQvj83nSisbyav0QwenNFHKi_/exec";
+                        const form = e.target;
+                        const submitButton = form.querySelector(
+                            "#demo-submit-button",
+                        );
+                        const originalButtonText = submitButton.innerHTML;
+
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = `<span class="loader"></span>`;
+
+                        fetch(scriptURL, {
+                            method: "POST",
+                            body: new FormData(form),
+                        })
+                            .then((response) => {
+                                const name =
+                                    form.elements["name"].value || "there";
+                                demoSuccessMessage.innerHTML = `<h3 class="text-2xl font-bold text-white mb-4">Thank You, ${name}!</h3><p class="text-gray-300">We've received your request and will be in touch shortly to schedule a demo tailored to your needs.</p>`;
+                                demoForm.classList.add("hidden");
+                                demoSuccessMessage.classList.remove("hidden");
+                            })
+                            .catch((error) => {
+                                alert("Error!", error.message);
+                                submitButton.disabled = false;
+                                submitButton.innerHTML = originalButtonText;
+                            });
+                    });
+                }
+
+                // --- Integrations Page Logic ---
+                if (integrationGrid) {
+                    const integrations = [
+                        { name: "Cisco Meraki", category: "Access Control" },
+                        { name: "Inner Range", category: "Access Control" },
+                        { name: "HID", category: "Access Control" },
+                        { name: "Lenel", category: "Access Control" },
+                        { name: "Gallagher", category: "Access Control" },
+                        { name: "Gantner", category: "Access Control" },
+                        { name: "Axis", category: "Access Control" },
+                        { name: "Crestron", category: "AV" },
+                        { name: "Extron", category: "AV" },
+                        { name: "QSC", category: "AV" },
+                        { name: "Biamp", category: "AV" },
+                        { name: "Zoom", category: "AV" },
+                        { name: "Microsoft Teams", category: "AV" },
+                        { name: "Webex", category: "AV" },
+                        { name: "Sony", category: "AV" },
+                        { name: "Samsung", category: "AV" },
+                        { name: "LG", category: "AV" },
+                        { name: "Epson", category: "AV" },
+                        { name: "Shure", category: "AV" },
+                        { name: "Polycom", category: "AV" },
+                        { name: "Google Calendar", category: "Calendars" },
+                        { name: "Microsoft 365", category: "Calendars" },
+                        { name: "25Live Pro", category: "Calendars" },
+                        { name: "Slack", category: "Collaboration" },
+                        { name: "Philips Hue", category: "Lighting" },
+                        { name: "KNX", category: "Lighting" },
+                        { name: "Lutron", category: "Lighting" },
+                        { name: "Helvar", category: "Lighting" },
+                        { name: "Zencontrol", category: "Lighting" },
+                        { name: "VergeSense", category: "Sensors" },
+                        { name: "PointGrab", category: "Sensors" },
+                        { name: "XY Sense", category: "Sensors" },
+                        { name: "Steinel", category: "Sensors" },
+                        { name: "Freespace", category: "Sensors" },
+                        { name: "BACnet", category: "BMS & HVAC" },
+                        { name: "Modbus", category: "BMS & HVAC" },
+                        { name: "Schneider", category: "BMS & HVAC" },
+                        { name: "Honeywell", category: "BMS & HVAC" },
+                        { name: "Siemens", category: "BMS & HVAC" },
+                        { name: "Johnson Controls", category: "BMS & HVAC" },
+                        { name: "Azure AD", category: "Networking" },
+                        { name: "Cisco ISE", category: "Networking" },
+                        { name: "Juniper Mist", category: "Networking" },
+                        { name: "HP Aruba", category: "Networking" },
+                        { name: "Stripe", category: "Payments" },
+                        { name: "OpenAI", category: "AI & LLM" },
+                    ];
+                    const categories = [
+                        "All",
+                        ...new Set(integrations.map((item) => item.category)),
+                    ];
+
+                    function renderIntegrations(filteredIntegrations) {
+                        integrationGrid.innerHTML = "";
+                        if (filteredIntegrations.length === 0) {
+                            noIntegrationsFound.classList.remove("hidden");
+                        } else {
+                            noIntegrationsFound.classList.add("hidden");
+                        }
+                        filteredIntegrations.forEach((integration) => {
+                            const card = document.createElement("div");
+                            card.className =
+                                "card p-4 flex items-center justify-center text-center h-24";
+                            card.innerHTML = `<span class="font-semibold text-sm">${integration.name}</span>`;
+                            integrationGrid.appendChild(card);
+                        });
+                    }
+
+                    function setupFilters() {
+                        integrationFilters.innerHTML = "";
+                        categories.forEach((category) => {
+                            const button = document.createElement("button");
+                            button.className =
+                                "filter-btn bg-gray-800/70 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded-full text-sm";
+                            button.textContent = category;
+                            button.dataset.category = category;
+                            if (category === "All") {
+                                button.classList.add("active");
+                            }
+                            button.addEventListener("click", () => {
+                                document
+                                    .querySelectorAll(".filter-btn")
+                                    .forEach((btn) =>
+                                        btn.classList.remove("active"),
+                                    );
+                                button.classList.add("active");
+                                integrationSearch.value = "";
+                                const filtered =
+                                    category === "All"
+                                        ? integrations
+                                        : integrations.filter(
+                                              (i) => i.category === category,
+                                          );
+                                renderIntegrations(filtered);
+                            });
+                            integrationFilters.appendChild(button);
+                        });
+                    }
+
+                    integrationSearch.addEventListener("input", (e) => {
+                        const searchTerm = e.target.value.toLowerCase();
+                        document
+                            .querySelectorAll(".filter-btn")
+                            .forEach((btn) => btn.classList.remove("active"));
+                        const filtered = integrations.filter((i) =>
+                            i.name.toLowerCase().includes(searchTerm),
+                        );
+                        renderIntegrations(filtered);
+                    });
+
+                    setupFilters();
+                    renderIntegrations(integrations);
+                }
+
+                // --- Set current year in footer ---
+                document.getElementById("year").textContent =
+                    new Date().getFullYear();
+            });
+        </script>
+    </body>
+</html>
