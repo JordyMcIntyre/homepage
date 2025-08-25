@@ -2,14 +2,14 @@
 <html lang="en" class="scroll-smooth">
     <head>
         <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJH6YQ76B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJH6YQ76B"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-  gtag('config', 'G-JEJH6YQ76B');
-</script>
+            gtag('config', 'G-JEJH6YQ76B');
+        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>PlaceOS | Make Buildings Sing with Automation</title>
@@ -55,6 +55,11 @@
             async
         ></script>
         <script src="https://fast.wistia.com/playlist.js" async></script>
+        <!-- Wistia Channel Embed Script (from video page) -->
+        <script
+            src="https://fast.wistia.com/assets/external/channel.js"
+            async
+        ></script>
 
         <!-- Custom Styles -->
         <style>
@@ -398,6 +403,74 @@
                 color: white;
                 box-shadow: 0 4px 14px rgba(197, 43, 103, 0.5);
             }
+
+            /* Styles from video page */
+            .wistia_responsive_padding {
+                padding: 56.25% 0 0 0;
+                position: relative;
+            }
+            .wistia_responsive_wrapper {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+            .content-fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Custom styles for channel cards on the new page */
+            #videos .channel-card {
+                background-color: #1f2937; /* gray-800 */
+                border-color: #374151; /* gray-700 */
+            }
+             #videos .channel-card:hover {
+                border-color: #22d3ee; /* cyan-400 */
+            }
+            #videos .bg-gray-800 {
+                 background-color: #1f2937; /* gray-800 */
+            }
+            #videos .border-gray-700 {
+                border-color: #374151; /* gray-700 */
+            }
+            #videos .text-gray-400 {
+                color: #9ca3af; /* gray-400 */
+            }
+            /* Blog Post Content Styles */
+            #blog-post-content h2 {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                color: var(--text);
+            }
+            #blog-post-content p {
+                margin-bottom: 1rem;
+                line-height: 1.75;
+            }
+            #blog-post-content a {
+                color: var(--accent);
+                text-decoration: underline;
+            }
+            #blog-post-content ul {
+                list-style-type: disc;
+                padding-left: 2rem;
+                margin-bottom: 1rem;
+            }
+            #blog-post-content li {
+                margin-bottom: 0.5rem;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -492,11 +565,11 @@
                             >Manifesto</a
                         >
                         <a
-                            href="http://tv.placeos.com"
-                            target="_blank"
-                            class="text-gray-300 hover:text-white transition-colors"
+                            href="#videos"
+                            class="text-gray-300 hover:text-white transition-colors router-link"
+                            data-page="videos"
                         >
-                            <i class="fas fa-tv"></i>
+                            Content
                         </a>
                         <a href="#demo" class="cta-primary text-sm px-5 py-2.5"
                             >Book a Demo</a
@@ -563,10 +636,10 @@
                     >Manifesto</a
                 >
                 <a
-                    href="http://tv.placeos.com"
-                    target="_blank"
-                    class="block py-2 text-gray-300 hover:text-white"
-                    >Content Channel</a
+                    href="#videos"
+                    class="block py-2 text-gray-300 hover:text-white router-link"
+                    data-page="videos"
+                    >Content</a
                 >
                 <a
                     href="#demo"
@@ -1696,6 +1769,195 @@
                     </div>
                 </section>
             </div>
+            
+            <!-- Video Content Page -->
+            <div id="videos" class="page">
+                 <section class="relative pt-32 pb-20 md:pt-40 md:pb-24">
+                     <div class="container mx-auto px-6 relative z-10">
+                        <!-- Header Section -->
+                        <header class="text-center mb-8 md:mb-12">
+                            <h1
+                                id="video-page-title"
+                                class="text-4xl md:text-5xl font-bold text-white"
+                            >
+                                Our Video Library
+                            </h1>
+                            <p id="video-page-subtitle" class="text-lg text-gray-400 mt-2">
+                                Explore our featured content and video channels.
+                            </p>
+                            <a
+                                href="#"
+                                id="back-to-channels-home"
+                                class="hidden mt-4 inline-block text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+                                >&larr; Back to Channels</a
+                            >
+                        </header>
+
+                        <!-- Main Content Area: Switches between homepage and channels -->
+                        <main id="video-main-content">
+                            <!-- Homepage View -->
+                            <div id="video-homepage-view">
+                                <!-- Channels Section -->
+                                <section class="mb-12">
+                                    <h2
+                                        class="text-2xl md:text-3xl font-bold mb-6 text-center text-white"
+                                    >
+                                        Our Channels
+                                    </h2>
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                                    >
+                                        <!-- Channel Card 1 -->
+                                        <div
+                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border"
+                                            data-channel-id="31yi66t51k"
+                                            data-channel-name="WorkMate Features and Gems"
+                                        >
+                                            <a href="#" class="block p-6 cursor-pointer">
+                                                <h3
+                                                    class="text-xl font-semibold text-white"
+                                                >
+                                                    WorkMate Features and Gems
+                                                </h3>
+                                                <p class="text-gray-400 mt-2">
+                                                    Discover the powerful features of our
+                                                    WorkMate app.
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <!-- Channel Card 2 -->
+                                        <div
+                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border"
+                                            data-channel-id="wi7i7xjkm3"
+                                            data-channel-name="Smart Building Experiences"
+                                        >
+                                            <a href="#" class="block p-6 cursor-pointer">
+                                                <h3
+                                                    class="text-xl font-semibold text-white"
+                                                >
+                                                    Smart Building Experiences
+                                                </h3>
+                                                <p class="text-gray-400 mt-2">
+                                                    See how we're transforming the modern
+                                                    workplace.
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <!-- Channel Card 3 -->
+                                        <div
+                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border"
+                                            data-channel-id="ka356ldohr"
+                                            data-channel-name="PlaceOS Product updates"
+                                        >
+                                            <a href="#" class="block p-6 cursor-pointer">
+                                                <h3
+                                                    class="text-xl font-semibold text-white"
+                                                >
+                                                    PlaceOS Product updates
+                                                </h3>
+                                                <p class="text-gray-400 mt-2">
+                                                    Stay up-to-date with the latest from
+                                                    PlaceOS.
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <!-- Channel Card 4 -->
+                                        <div
+                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border"
+                                            data-channel-id="1o4kgafdth"
+                                            data-channel-name="PlaceOS Webinars"
+                                        >
+                                            <a href="#" class="block p-6 cursor-pointer">
+                                                <h3
+                                                    class="text-xl font-semibold text-white"
+                                                >
+                                                    PlaceOS Webinars
+                                                </h3>
+                                                <p class="text-gray-400 mt-2">
+                                                    Watch our past webinars and live event
+                                                    recordings.
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Featured Video Section -->
+                                <section class="mb-12">
+                                    <h2
+                                        class="text-2xl md:text-3xl font-bold mb-4 text-center text-white"
+                                    >
+                                        Featured Video- Smart Campus
+                                    </h2>
+                                    <div
+                                        class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto border border-gray-700"
+                                    >
+                                        <!-- Wistia Featured Video Embed -->
+                                        <div class="wistia_responsive_padding">
+                                            <div class="wistia_responsive_wrapper">
+                                                <iframe
+                                                    src="https://fast.wistia.net/embed/iframe/lpgcfokl2w?videoFoam=true"
+                                                    title="PlaceOS Campus experiences"
+                                                    allow="autoplay; fullscreen"
+                                                    allowtransparency="true"
+                                                    frameborder="0"
+                                                    scrolling="no"
+                                                    class="wistia_embed"
+                                                    name="wistia_embed"
+                                                    msallowfullscreen
+                                                    width="100%"
+                                                    height="100%"
+                                                ></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <!-- Channel View (dynamically populated) -->
+                            <div id="video-channel-view" class="hidden">
+                                <!-- Wistia channel embed will be injected here -->
+                            </div>
+                        </main>
+                    </div>
+                 </section>
+            </div>
+
+            <!-- Blog Page -->
+            <div id="blog" class="page">
+                <section class="relative pt-32 pb-20 md:pt-40 md:pb-24 text-center overflow-hidden">
+                    <div class="container mx-auto px-6 relative z-10">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight my-4">
+                            From the Blog
+                        </h1>
+                        <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-8">
+                            Insights on smart buildings, workplace technology, and the future of automation.
+                        </p>
+                    </div>
+                </section>
+                <section class="pb-20">
+                    <div class="container mx-auto px-6">
+                        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Blog posts will be injected here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Single Blog Post Page -->
+            <div id="blog-post" class="page">
+                <section class="relative pt-32 pb-20 md:pt-40 md:pb-24">
+                    <div class="container mx-auto px-6 max-w-4xl">
+                        <a href="#blog" class="router-link text-accent hover:underline mb-8 inline-block" data-page="blog">&larr; Back to Blog</a>
+                        <h1 id="blog-post-title" class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4"></h1>
+                        <p id="blog-post-date" class="text-gray-400 mb-8"></p>
+                        <div id="blog-post-content" class="text-gray-300">
+                            <!-- Full blog content will be injected here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
 
             <!-- Product Pages -->
             <div id="workmate" class="page">
@@ -2802,7 +3064,7 @@
         <!-- Footer -->
         <footer class="bg-black/50 border-t border-white/10">
             <div class="container mx-auto px-6 py-12">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                     <div class="col-span-2">
                         <div class="flex items-center gap-3 mb-4">
                             <div
@@ -2853,6 +3115,23 @@
                         </nav>
                     </div>
                     <div>
+                        <h5 class="kicker mb-4">Company</h5>
+                        <nav class="space-y-2">
+                            <a
+                                href="#blog"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="blog"
+                                >Blog</a
+                            >
+                             <a
+                                href="#manifesto"
+                                class="block text-gray-400 hover:text-white text-sm router-link"
+                                data-page="manifesto"
+                                >Manifesto</a
+                            >
+                        </nav>
+                    </div>
+                    <div>
                         <h5 class="kicker mb-4">Developers</h5>
                         <nav class="space-y-2">
                             <a
@@ -2878,7 +3157,7 @@
                         All rights reserved.
                     </p>
                     <div class="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" class="text-gray-500 hover:text-white"
+                        <a href="https://x.com/Jonplaceos" class="text-gray-500 hover:text-white"
                             ><span class="sr-only">Twitter</span
                             ><svg
                                 class="w-5 h-5"
@@ -2889,7 +3168,7 @@
                                     d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                                 ></path></svg
                         ></a>
-                        <a href="#" class="text-gray-500 hover:text-white"
+                        <a href="https://au.linkedin.com/company/placeos" class="text-gray-500 hover:text-white"
                             ><span class="sr-only">LinkedIn</span
                             ><svg
                                 class="w-5 h-5"
@@ -2941,15 +3220,41 @@
                 const noIntegrationsFound = document.getElementById(
                     "no-integrations-found",
                 );
+                const blogGrid = document.getElementById("blog-grid");
 
                 // --- Page Router ---
-                function showPage(pageId) {
-                    const targetId = pageId || "homepage";
-                    pages.forEach((page) => {
-                        page.classList.toggle("active", page.id === targetId);
-                    });
+                function showPage(pageId, slug = null) {
+                    pages.forEach(page => page.classList.remove('active'));
+                    
+                    let targetId = pageId || 'homepage';
+
+                    if (targetId === 'blog' && slug) {
+                        targetId = 'blog-post';
+                        renderBlogPost(slug);
+                    } else if (targetId === 'blog-post') {
+                        // This case is handled by the slug check above, but as a fallback, show blog list
+                        targetId = 'blog';
+                    }
+                    
+                    const targetPage = document.getElementById(targetId);
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                    } else {
+                        document.getElementById('homepage').classList.add('active');
+                    }
+
                     window.scrollTo(0, 0);
                     mobileMenu.classList.add("hidden");
+                }
+
+                function handleRouting() {
+                    const hash = window.location.hash.substring(1);
+                    if (hash.startsWith('blog/')) {
+                        const slug = hash.substring(5);
+                        showPage('blog', slug);
+                    } else {
+                        showPage(hash);
+                    }
                 }
 
                 navLinks.forEach((link) => {
@@ -2957,17 +3262,17 @@
                         e.preventDefault();
                         const pageId = link.dataset.page;
                         history.pushState({ page: pageId }, null, `#${pageId}`);
-                        showPage(pageId);
+                        handleRouting();
                     });
                 });
 
                 window.addEventListener("popstate", (e) => {
-                    showPage(e.state ? e.state.page : "homepage");
+                    handleRouting();
                 });
 
                 // Initial page load
-                const initialPage = window.location.hash.substring(1);
-                showPage(initialPage);
+                handleRouting();
+
 
                 // --- Mobile menu ---
                 mobileMenuButton.addEventListener("click", () => {
@@ -3212,6 +3517,209 @@
                     setupFilters();
                     renderIntegrations(integrations);
                 }
+                
+                // --- Video Page Logic ---
+                const videoPage = document.getElementById("videos");
+                if (videoPage) {
+                    const videoMainContent = document.getElementById("video-main-content");
+                    const videoHomepageView = document.getElementById("video-homepage-view");
+                    const videoChannelView = document.getElementById("video-channel-view");
+                    const videoPageTitle = document.getElementById("video-page-title");
+                    const videoPageSubtitle = document.getElementById("video-page-subtitle");
+                    const backToChannelsHomeLink = document.getElementById("back-to-channels-home");
+                    const channelCards = videoPage.querySelectorAll(".channel-card");
+
+                    function showVideoHomepage() {
+                        videoPageTitle.textContent = "Our Video Library";
+                        videoPageSubtitle.classList.remove("hidden");
+                        backToChannelsHomeLink.classList.add("hidden");
+
+                        videoChannelView.classList.add("hidden");
+                        videoChannelView.innerHTML = ""; // Clear previous channel
+                        videoHomepageView.classList.remove("hidden");
+                        
+                        videoMainContent.classList.add("content-fade-in");
+                        setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
+                    }
+
+                    function showChannel(channelId, channelName) {
+                        if (!channelId) {
+                            console.error("Channel ID not found");
+                            showVideoHomepage();
+                            return;
+                        }
+
+                        videoPageTitle.textContent = channelName;
+                        videoPageSubtitle.classList.add("hidden");
+                        backToChannelsHomeLink.classList.remove("hidden");
+
+                        videoHomepageView.classList.add("hidden");
+
+                        const channelEmbedHTML = `
+                        <link rel="stylesheet" href="https://fast.wistia.com/embed/channel/project/${channelId}/font.css" />
+                        <div class="wistia_channel wistia_async_${channelId} mode=inline" style="min-height:100vh; position:relative; width:100%;"></div>
+                        `;
+                        videoChannelView.innerHTML = channelEmbedHTML;
+                        videoChannelView.classList.remove("hidden");
+
+                        window._wq = window._wq || [];
+                        _wq.push({
+                            id: "_all",
+                            onReady: function (video) {
+                                console.log("Wistia channel reloaded:", channelId);
+                            },
+                        });
+                        
+                        videoMainContent.classList.add("content-fade-in");
+                        setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
+                    }
+                    
+                    channelCards.forEach(card => {
+                        card.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            const id = card.getAttribute("data-channel-id");
+                            const name = card.getAttribute("data-channel-name");
+                            showChannel(id, name);
+                        });
+                    });
+
+                    backToChannelsHomeLink.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        showVideoHomepage();
+                    });
+                }
+
+                // --- Blog Page Logic ---
+                const blogPosts = [
+                    {
+                        title: 'The Role of AI in Smart Building Automation',
+                        slug: 'the-role-of-ai-in-smart-building-automation',
+                        image: 'https://placehold.co/600x400/0d1117/c52b67?text=AI+in+Buildings',
+                        date: '2022-09-12',
+                        excerpt: 'Artificial Intelligence is no longer a futuristic concept; it\'s a present-day reality that is reshaping industries, and the world of smart buildings is no exception.',
+                        content: `
+                            <h2>The AI Revolution in Property Technology</h2>
+                            <p>Artificial Intelligence (AI) is rapidly moving from a futuristic buzzword to a practical tool that's reshaping industries. The world of smart buildings and property technology (PropTech) is no exception. At PlaceOS, we see AI not just as an add-on, but as a core component for creating truly responsive, efficient, and intelligent environments.</p>
+                            <p>From optimizing energy consumption to personalizing user experiences, AI is the engine that can analyze vast amounts of data from building systems—HVAC, lighting, access control, sensors—and make autonomous decisions. This goes beyond simple automation; it's about creating systems that learn, adapt, and predict.</p>
+                            <h2>Key Applications of AI in Smart Buildings</h2>
+                            <ul>
+                                <li><strong>Predictive Maintenance:</strong> AI algorithms can analyze data from equipment to predict failures before they happen, allowing for proactive maintenance, reducing downtime, and saving costs.</li>
+                                <li><strong>Energy Optimization:</strong> By learning occupancy patterns and factoring in external data like weather forecasts, AI can adjust HVAC and lighting systems in real-time to minimize energy waste without sacrificing comfort.</li>
+                                <li><strong>Enhanced Security:</strong> AI-powered video analytics can detect unusual activity, identify security threats, and automate responses, providing a more robust security posture than traditional monitoring.</li>
+                                <li><strong>Personalized Experiences:</strong> AI can learn individual preferences for lighting, temperature, and room setups, automatically adjusting the environment as occupants move through a building.</li>
+                            </ul>
+                            <p>The integration of AI is the next logical step in the evolution of building automation. It transforms a building from a collection of siloed systems into a cohesive, intelligent entity that works for its occupants. As we continue to develop the PlaceOS platform, AI will play an increasingly vital role in our mission to make buildings sing.</p>
+                        `
+                    },
+                    {
+                        title: 'Enhancing Workplace Experience with IoT',
+                        slug: 'enhancing-workplace-experience-with-iot',
+                        image: 'https://placehold.co/600x400/0d1117/7aa8ff?text=Workplace+IoT',
+                        date: '2022-08-25',
+                        excerpt: 'The Internet of Things (IoT) is revolutionizing how we interact with our physical environments. In the context of the modern workplace, IoT is a game-changer.',
+                        content: `
+                            <h2>More Than Just Connected Devices</h2>
+                            <p>The Internet of Things (IoT) in the workplace is about more than just smart lightbulbs or connected thermostats. It's about creating a seamless, data-driven environment that enhances productivity, collaboration, and overall employee well-being. By connecting a network of sensors, devices, and systems, IoT provides the real-time data needed to understand and optimize every aspect of the workplace.</p>
+                            <h2>How IoT is Transforming the Office</h2>
+                            <p>Imagine an office that knows when you arrive, adjusts your desk to your preferred height, sets the lighting and temperature to your liking, and books a meeting room for you based on your calendar. This is the power of IoT when integrated with a smart building platform like PlaceOS.</p>
+                            <ul>
+                                <li><strong>Smart Desks and Rooms:</strong> Occupancy sensors can provide real-time data on which desks and rooms are available, eliminating the frustration of finding a place to work.</li>
+                                <li><strong>Wayfinding:</strong> Integrated apps can guide employees and visitors to their destinations within a large campus, saving time and reducing stress.</li>
+                                <li><strong>Health and Wellness:</strong> Environmental sensors can monitor air quality, temperature, and humidity, ensuring a healthy and comfortable working environment.</li>
+                            </ul>
+                            <p>By leveraging IoT, organizations can move from a one-size-fits-all approach to a personalized and responsive workplace that caters to the needs of its employees. This not only improves the employee experience but also provides valuable insights for space planning and facility management.</p>
+                        `
+                    },
+                    {
+                        title: 'A Glimpse into the Future of Smart Campuses',
+                        slug: 'a-glimpse-into-the-future-of-smart-campuses',
+                        image: 'https://placehold.co/600x400/0d1117/e6edf3?text=Smart+Campus',
+                        date: '2022-07-15',
+                        excerpt: 'The concept of a "smart campus" has evolved from a buzzword into a tangible reality, transforming the educational and operational landscape of universities worldwide.',
+                        content: `
+                            <h2>The Connected Educational Experience</h2>
+                            <p>A smart campus leverages technology to create a more engaging, efficient, and safe environment for students, faculty, and staff. It's an ecosystem where digital and physical worlds merge, powered by IoT, data analytics, and automation. The goal is to enhance every aspect of campus life, from learning and research to administration and facility management.</p>
+                            <h2>Building Blocks of a Smart Campus</h2>
+                            <ul>
+                                <li><strong>Integrated Timetabling:</strong> Connect class schedules with room booking systems, AV controls, and digital signage for a seamless academic experience.</li>
+                                <li><strong>Smart Navigation:</strong> Help students and visitors find their way around campus with interactive maps and turn-by-turn directions on their mobile devices.</li>
+                                <li><strong>Resource Optimization:</strong> Use real-time data to manage classroom utilization, energy consumption, and parking availability, making the campus more sustainable and efficient.</li>
+                                <li><strong>Enhanced Safety and Security:</strong> Integrate access control, CCTV, and emergency alert systems to create a safer environment for everyone on campus.</li>
+                            </ul>
+                            <p>At PlaceOS, we're working with educational institutions to turn this vision into reality. By providing a platform that can integrate with a wide range of campus systems, we're helping universities build the smart campuses of the future, today.</p>
+                        `
+                    }
+                ];
+
+                function simpleMarkdownToHtml(markdown) {
+                    if (!markdown) return '';
+                    let html = markdown.trim();
+                    // h2
+                    html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+                    // ul/li
+                    html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+                    html = html.replace(/<\/li>\n<li>/gim, '</li><li>');
+                    html = html.replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>');
+                    // p
+                    html = html.split(/\n\n+/).map(p => {
+                        if (p.startsWith('<h') || p.startsWith('<ul')) {
+                            return p;
+                        }
+                        return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+                    }).join('');
+
+                    return html;
+                }
+
+
+                function renderBlogPosts() {
+                    if (!blogGrid) return;
+                    const sortedPosts = blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    blogGrid.innerHTML = sortedPosts.map(post => {
+                        const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                        
+                        return `
+                        <div class="card p-0 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 text-left flex flex-col">
+                            <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <p class="text-sm text-gray-400 mb-2">${formattedDate}</p>
+                                <h3 class="text-xl font-bold text-white mb-3">${post.title}</h3>
+                                <p class="text-gray-300 flex-grow">${post.excerpt}</p>
+                                <button class="read-more-btn inline-block text-accent font-semibold mt-4 text-left" data-slug="${post.slug}">Read More &rarr;</button>
+                            </div>
+                        </div>
+                    `}).join('');
+                }
+
+                function renderBlogPost(slug) {
+                    const post = blogPosts.find(p => p.slug === slug);
+                    if (!post) {
+                        showPage('blog'); // Fallback to blog list if post not found
+                        return;
+                    }
+
+                    const titleEl = document.getElementById('blog-post-title');
+                    const dateEl = document.getElementById('blog-post-date');
+                    const contentEl = document.getElementById('blog-post-content');
+
+                    titleEl.textContent = post.title;
+                    dateEl.textContent = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    contentEl.innerHTML = simpleMarkdownToHtml(post.content);
+                }
+
+                if (blogGrid) {
+                    blogGrid.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('read-more-btn')) {
+                            const slug = e.target.dataset.slug;
+                            history.pushState({ page: 'blog', slug: slug }, null, `#blog/${slug}`);
+                            handleRouting();
+                        }
+                    });
+                }
+                
+                renderBlogPosts();
+
 
                 // --- Set current year in footer ---
                 document.getElementById("year").textContent =
