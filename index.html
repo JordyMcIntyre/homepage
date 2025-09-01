@@ -446,29 +446,29 @@
             #videos .text-gray-400 {
                 color: #9ca3af; /* gray-400 */
             }
-            /* Blog Post Content Styles */
-            #blog-post-content h2 {
+            /* Blog & Privacy Policy Content Styles */
+            .text-content-page h2 {
                 font-size: 1.875rem;
                 line-height: 2.25rem;
                 font-weight: 700;
-                margin-top: 2rem;
+                margin-top: 2.5rem;
                 margin-bottom: 1rem;
                 color: var(--text);
             }
-            #blog-post-content p {
+            .text-content-page p {
                 margin-bottom: 1rem;
                 line-height: 1.75;
             }
-            #blog-post-content a {
+            .text-content-page a {
                 color: var(--accent);
                 text-decoration: underline;
             }
-            #blog-post-content ul {
+            .text-content-page ul {
                 list-style-type: disc;
                 padding-left: 2rem;
                 margin-bottom: 1rem;
             }
-            #blog-post-content li {
+            .text-content-page li {
                 margin-bottom: 0.5rem;
             }
         </style>
@@ -1767,7 +1767,7 @@
                     </div>
                 </section>
             </div>
-            
+
             <!-- Video Content Page -->
             <div id="videos" class="page">
                  <section class="relative pt-32 pb-20 md:pt-40 md:pb-24">
@@ -1941,7 +1941,7 @@
                     </div>
                 </section>
             </div>
-            
+
             <!-- Single Blog Post Page -->
             <div id="blog-post" class="page">
                 <section class="relative pt-32 pb-20 md:pt-40 md:pb-24">
@@ -1949,9 +1949,93 @@
                         <a href="#blog" class="router-link text-accent hover:underline mb-8 inline-block" data-page="blog">&larr; Back to Blog</a>
                         <h1 id="blog-post-title" class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4"></h1>
                         <p id="blog-post-date" class="text-gray-400 mb-8"></p>
-                        <div id="blog-post-content" class="text-gray-300">
+                        <div id="blog-post-content" class="text-content-page text-gray-300">
                             <!-- Full blog content will be injected here -->
                         </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Privacy Policy Page -->
+            <div id="privacy-policy" class="page">
+                <section class="relative pt-32 pb-20 md:pt-40 md:pb-24">
+                    <div class="container mx-auto px-6 max-w-4xl">
+                         <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-8">Privacy Policy</h1>
+                         <div class="text-content-page text-gray-300">
+                            <p>PlaceOS (“us”, “we”, or “our”) operates the <a href="https://placeos.com" target="_blank" rel="noopener noreferrer">PlaceOS</a> website (the “Service”).</p>
+                            <p>We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+                            <p>We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.</p>
+
+                            <h2>Information Collection And Use</h2>
+                            <p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
+                            <ul>
+                                <li>Email address</li>
+                                <li>Name</li>
+                                <li>Phone number</li>
+                                <li>Postal address</li>
+                                <li>Other information (“Personal Information”)</li>
+                            </ul>
+
+                            <h2>Log Data</h2>
+                            <p>We may also collect information that your browser sends whenever you visit our Service (“Log Data”). This Log Data may include:</p>
+                             <ul>
+                                <li>Your computer’s Internet Protocol (“IP”) address</li>
+                                <li>Browser type and version</li>
+                                <li>Pages of our Service that you visit</li>
+                                <li>Time and date of your visit</li>
+                                <li>Time spent on those pages</li>
+                                <li>Other statistics</li>
+                            </ul>
+
+                            <h2>Cookies</h2>
+                            <p>Cookies are files with a small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your computer’s hard drive.</p>
+                            <p>We use cookies to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+
+                            <h2>Service Providers</h2>
+                            <p>We may employ third-party companies and individuals to:</p>
+                             <ul>
+                                <li>Facilitate our Service</li>
+                                <li>Provide the Service on our behalf</li>
+                                <li>Perform Service-related services</li>
+                                <li>Assist us in analyzing how our Service is used</li>
+                            </ul>
+                            <p>These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+
+                            <h2>Communications</h2>
+                            <p>We may use your Personal Information to contact you with:</p>
+                            <ul>
+                                <li>Newsletters</li>
+                                <li>Marketing or promotional materials</li>
+                                <li>Other information that may be of interest to you</li>
+                            </ul>
+                            <p>You may opt out of receiving any, or all, of these communications by:</p>
+                             <ul>
+                                <li>Following the unsubscribe link in any email</li>
+                                <li>Contacting us directly</li>
+                            </ul>
+
+                            <h2>Compliance With Laws</h2>
+                            <p>We will disclose your Personal Information where required to do so by law or subpoena or if we believe that such action is necessary to:</p>
+                            <ul>
+                                <li>Comply with the law and reasonable requests of law enforcement</li>
+                                <li>Protect the security or integrity of our Service</li>
+                            </ul>
+
+                            <h2>Security</h2>
+                            <p>The security of your Personal Information is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.</p>
+
+                            <h2>Links To Other Sites</h2>
+                            <p>Our Service may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party’s site.</p>
+                            <p>We strongly advise you to review the Privacy Policy of every site you visit. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services.</p>
+
+                            <h2>Children’s Privacy</h2>
+                            <p>Our Service does not address anyone under the age of 13 (“Children”). We do not knowingly collect personally identifiable information from children under 13.</p>
+                            <p>If you are a parent or guardian and you are aware that your child has provided us with Personal Information, please contact us. If we become aware that we have collected Personal Information from a child under age 13 without verification of parental consent, we take steps to remove that information from our servers.</p>
+
+                            <h2>Changes To This Privacy Policy</h2>
+                            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                         </div>
                     </div>
                 </section>
             </div>
@@ -3156,13 +3240,14 @@
                     </div>
                 </div>
                 <div
-                    class="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+                    class="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
                 >
-                    <p class="text-gray-500 text-sm">
-                        &copy; <span id="year"></span> Place Technology Group.
-                        All rights reserved.
-                    </p>
-                    <div class="flex space-x-6 mt-4 md:mt-0">
+                    <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-sm text-gray-500">
+                        <p>&copy; <span id="year"></span> Place Technology Group. All rights reserved.</p>
+                        <a href="#privacy-policy" class="hover:text-white router-link" data-page="privacy-policy">Privacy Policy</a>
+                    </div>
+
+                    <div class="flex space-x-6">
                         <a href="https://x.com/Jonplaceos" class="text-gray-500 hover:text-white"
                             ><span class="sr-only">Twitter</span
                             ><svg
@@ -3231,7 +3316,7 @@
                 // --- Page Router ---
                 function showPage(pageId, slug = null) {
                     pages.forEach(page => page.classList.remove('active'));
-                    
+
                     let targetId = pageId || 'homepage';
 
                     if (targetId === 'blog' && slug) {
@@ -3241,7 +3326,7 @@
                         // This case is handled by the slug check above, but as a fallback, show blog list
                         targetId = 'blog';
                     }
-                    
+
                     const targetPage = document.getElementById(targetId);
                     if (targetPage) {
                         targetPage.classList.add('active');
@@ -3255,6 +3340,10 @@
 
                 function handleRouting() {
                     const hash = window.location.hash.substring(1);
+                     if (!hash) {
+                        showPage('homepage');
+                        return;
+                    }
                     if (hash.startsWith('blog/')) {
                         const slug = hash.substring(5);
                         showPage('blog', slug);
@@ -3267,7 +3356,8 @@
                     link.addEventListener("click", (e) => {
                         e.preventDefault();
                         const pageId = link.dataset.page;
-                        history.pushState({ page: pageId }, null, `#${pageId}`);
+                        const href = link.getAttribute('href');
+                        history.pushState({ page: pageId }, null, href);
                         handleRouting();
                     });
                 });
@@ -3523,7 +3613,7 @@
                     setupFilters();
                     renderIntegrations(integrations);
                 }
-                
+
                 // --- Video Page Logic ---
                 const videoPage = document.getElementById("videos");
                 if (videoPage) {
@@ -3543,7 +3633,7 @@
                         videoChannelView.classList.add("hidden");
                         videoChannelView.innerHTML = ""; // Clear previous channel
                         videoHomepageView.classList.remove("hidden");
-                        
+
                         videoMainContent.classList.add("content-fade-in");
                         setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
                     }
@@ -3575,11 +3665,11 @@
                                 console.log("Wistia channel reloaded:", channelId);
                             },
                         });
-                        
+
                         videoMainContent.classList.add("content-fade-in");
                         setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
                     }
-                    
+
                     channelCards.forEach(card => {
                         card.addEventListener("click", (e) => {
                             e.preventDefault();
@@ -3684,7 +3774,7 @@
 
                     blogGrid.innerHTML = sortedPosts.map(post => {
                         const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                        
+
                         return `
                         <div class="card p-0 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 text-left flex flex-col">
                             <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">
@@ -3711,7 +3801,7 @@
 
                     titleEl.textContent = post.title;
                     dateEl.textContent = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    contentEl.innerHTML = simpleMarkdownToHtml(post.content);
+                    contentEl.innerHTML = post.content;
                 }
 
                 if (blogGrid) {
@@ -3723,7 +3813,7 @@
                         }
                     });
                 }
-                
+
                 renderBlogPosts();
 
 
