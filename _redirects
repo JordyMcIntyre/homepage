@@ -4,7 +4,7 @@
 /contact     /#demo    301
 /privacy-policy   /#privacy-policy   301
 /integrations    /#integrations   301
-/workplace           /#workplace     301!
+/workplace/           /#workplace     301!
 /workplace/          /#workplace     301!
 /workplace/*         /#workplace     301!
 /workmate            /#workmate      301!
