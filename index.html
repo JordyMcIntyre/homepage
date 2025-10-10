@@ -2230,50 +2230,45 @@
                         <main id="video-main-content">
                             <!-- Homepage View -->
                             <div id="video-homepage-view">
-                                <!-- Wide Screen Layout: Video + Channels Side by Side -->
-                                <div class="lg:flex lg:gap-8 lg:items-start">
-                                    <!-- Featured Video Section (Left on wide screens) -->
-                                    <div class="lg:flex-1 lg:max-w-none mb-12 lg:mb-0">
-                                        <section>
-                                            <h2
-                                                class="text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left text-white"
-                                            >
-                                                Featured Video- Energy vs Occupancy
-                                            </h2>
-                                            <div
-                                                class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto lg:mx-0 border border-gray-700"
-                                            >
-                                                <!-- Wistia Featured Video Embed -->
-                                                <div class="wistia_responsive_padding">
-                                                    <div class="wistia_responsive_wrapper">
-                                                        <script src="https://fast.wistia.com/player.js" async></script>
-                                                        <script src="https://fast.wistia.com/embed/jclooc2ftg.js" async type="module"></script>
-                                                        <style>
-                                                            wistia-player[media-id='jclooc2ftg']:not(:defined) { 
-                                                                background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jclooc2ftg/swatch'); 
-                                                                display: block; 
-                                                                filter: blur(5px); 
-                                                                padding-top:56.25%; 
-                                                            }
-                                                        </style>
-                                                        <wistia-player media-id="jclooc2ftg" aspect="1.7777777777777777"></wistia-player>
-                                                    </div>
-                                                </div>
+                                <!-- Featured Video Section -->
+                                <section class="mb-12">
+                                    <h2
+                                        class="text-2xl md:text-3xl font-bold mb-4 text-center text-white"
+                                    >
+                                        Featured Video- Energy vs Occupancy
+                                    </h2>
+                                    <div
+                                        class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto border border-gray-700"
+                                    >
+                                        <!-- Wistia Featured Video Embed -->
+                                        <div class="wistia_responsive_padding">
+                                            <div class="wistia_responsive_wrapper">
+                                                <script src="https://fast.wistia.com/player.js" async></script>
+                                                <script src="https://fast.wistia.com/embed/jclooc2ftg.js" async type="module"></script>
+                                                <style>
+                                                    wistia-player[media-id='jclooc2ftg']:not(:defined) { 
+                                                        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jclooc2ftg/swatch'); 
+                                                        display: block; 
+                                                        filter: blur(5px); 
+                                                        padding-top:56.25%; 
+                                                    }
+                                                </style>
+                                                <wistia-player media-id="jclooc2ftg" aspect="1.7777777777777777"></wistia-player>
                                             </div>
-                                        </section>
+                                        </div>
                                     </div>
+                                </section>
 
-                                    <!-- Channels Section (Right on wide screens) -->
-                                    <div class="lg:w-80 lg:flex-shrink-0">
-                                        <section>
-                                            <h2
-                                                class="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left text-white"
-                                            >
-                                                Our Channels
-                                            </h2>
-                                            <div
-                                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6"
-                                            >
+                                <!-- Channels Section -->
+                                <section class="mb-12">
+                                    <h2
+                                        class="text-2xl md:text-3xl font-bold mb-6 text-center text-white"
+                                    >
+                                        Our Channels
+                                    </h2>
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                                    >
                                         <!-- Channel Card 1 -->
                                         <div
                                             class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border cursor-pointer"
@@ -2398,10 +2393,8 @@
                                                 </p>
                                             </div>
                                         </div>
-                                            </div>
-                                        </section>
                                     </div>
-                                </div>
+                                </section>
                             </div>
 
                             <!-- Channel View (dynamically populated) -->
