@@ -2230,170 +2230,153 @@
                         <main id="video-main-content">
                             <!-- Homepage View -->
                             <div id="video-homepage-view">
-                                <!-- Featured Video Section -->
-                                <section class="mb-12">
-                                    <h2
-                                        class="text-2xl md:text-3xl font-bold mb-4 text-center text-white"
-                                    >
-                                        Featured Video- Energy vs Occupancy
-                                    </h2>
-                                    <div
-                                        class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto border border-gray-700"
-                                    >
-                                        <!-- Wistia Featured Video Embed -->
-                                        <div class="wistia_responsive_padding">
-                                            <div class="wistia_responsive_wrapper">
-                                                <script src="https://fast.wistia.com/player.js" async></script>
-                                                <script src="https://fast.wistia.com/embed/jclooc2ftg.js" async type="module"></script>
-                                                <style>
-                                                    wistia-player[media-id='jclooc2ftg']:not(:defined) { 
-                                                        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jclooc2ftg/swatch'); 
-                                                        display: block; 
-                                                        filter: blur(5px); 
-                                                        padding-top:56.25%; 
-                                                    }
-                                                </style>
-                                                <wistia-player media-id="jclooc2ftg" aspect="1.7777777777777777"></wistia-player>
-                                            </div>
+                                <!-- Channels Navigation (Top) -->
+                                <section class="mb-8">
+                                    <!-- 2x2 grid that aligns with video width -->
+                                    <div class="max-w-4xl mx-auto">
+                                        <div class="flex items-center justify-between mb-6">
+                                            <h2 class="text-2xl md:text-3xl font-bold text-white">
+                                                Our Channels
+                                            </h2>
+                                            <!-- Home Icon (Hidden by default) -->
+                                            <button id="home-button" class="hidden p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-200" title="Back to Featured Video">
+                                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                                </svg>
+                                            </button>
                                         </div>
-                                    </div>
-                                </section>
-
-                                <!-- Channels Section -->
-                                <section class="mb-12">
-                                    <h2
-                                        class="text-2xl md:text-3xl font-bold mb-6 text-center text-white"
-                                    >
-                                        Our Channels
-                                    </h2>
-                                    <div
-                                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-                                    >
+                                        <div class="grid grid-cols-2 gap-4">
                                         <!-- Channel Card 1 -->
                                         <div
-                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border cursor-pointer"
+                                            class="channel-nav-item rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 border cursor-pointer bg-gray-800 hover:bg-gray-700 border-gray-600 hover:border-cyan-400"
                                             data-channel-id="31yi66t51k"
                                             data-channel-name="WorkMate Features and Gems"
                                         >
-                                            <div class="relative">
-                                                <!-- Emoji Icon -->
-                                                <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
-                                                    <div class="text-6xl">💼</div>
-                                                </div>
-                                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                    <div class="bg-white bg-opacity-20 rounded-full p-3">
-                                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z"/>
-                                                        </svg>
+                                            <div class="flex items-center p-4">
+                                                <div class="flex-shrink-0 mr-4">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
+                                                        <div class="text-2xl">💼</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-6">
-                                                <h3
-                                                    class="text-xl font-semibold text-white"
-                                                >
-                                                    WorkMate Features and Gems
-                                                </h3>
-                                                <p class="text-gray-400 mt-2">
-                                                    Discover the powerful features of our
-                                                    WorkMate app.
-                                                </p>
+                                                <div class="flex-1 min-w-0">
+                                                    <h3 class="text-lg font-semibold text-white truncate">
+                                                        WorkMate Features and Gems
+                                                    </h3>
+                                                    <p class="text-sm text-gray-400 truncate">
+                                                        Discover powerful WorkMate features
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- Channel Card 2 -->
                                         <div
-                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border cursor-pointer"
+                                            class="channel-nav-item rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 border cursor-pointer bg-gray-800 hover:bg-gray-700 border-gray-600 hover:border-cyan-400"
                                             data-channel-id="wi7i7xjkm3"
                                             data-channel-name="Smart Building Experiences"
                                         >
-                                            <div class="relative">
-                                                <!-- Emoji Icon -->
-                                                <div class="aspect-video bg-gradient-to-br from-green-600 to-teal-700 flex items-center justify-center">
-                                                    <div class="text-6xl">🏢</div>
-                                                </div>
-                                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                    <div class="bg-white bg-opacity-20 rounded-full p-3">
-                                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z"/>
-                                                        </svg>
+                                            <div class="flex items-center p-4">
+                                                <div class="flex-shrink-0 mr-4">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-700 rounded-lg flex items-center justify-center">
+                                                        <div class="text-2xl">🏢</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-6">
-                                                <h3
-                                                    class="text-xl font-semibold text-white"
-                                                >
-                                                    Smart Building Experiences
-                                                </h3>
-                                                <p class="text-gray-400 mt-2">
-                                                    See how we're transforming the modern
-                                                    workplace.
-                                                </p>
+                                                <div class="flex-1 min-w-0">
+                                                    <h3 class="text-lg font-semibold text-white truncate">
+                                                        Smart Building Experiences
+                                                    </h3>
+                                                    <p class="text-sm text-gray-400 truncate">
+                                                        Workflows, AI and automation
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- Channel Card 3 -->
                                         <div
-                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border cursor-pointer"
+                                            class="channel-nav-item rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 border cursor-pointer bg-gray-800 hover:bg-gray-700 border-gray-600 hover:border-cyan-400"
                                             data-channel-id="ka356ldohr"
                                             data-channel-name="PlaceOS Product updates"
                                         >
-                                            <div class="relative">
-                                                <!-- Emoji Icon -->
-                                                <div class="aspect-video bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center">
-                                                    <div class="text-6xl">🚀</div>
-                                                </div>
-                                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                    <div class="bg-white bg-opacity-20 rounded-full p-3">
-                                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z"/>
-                                                        </svg>
+                                            <div class="flex items-center p-4">
+                                                <div class="flex-shrink-0 mr-4">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-orange-600 to-red-700 rounded-lg flex items-center justify-center">
+                                                        <div class="text-2xl">🚀</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-6">
-                                                <h3
-                                                    class="text-xl font-semibold text-white"
-                                                >
-                                                    PlaceOS Product updates
-                                                </h3>
-                                                <p class="text-gray-400 mt-2">
-                                                    Stay up-to-date with the latest from
-                                                    PlaceOS.
-                                                </p>
+                                                <div class="flex-1 min-w-0">
+                                                    <h3 class="text-lg font-semibold text-white truncate">
+                                                        PlaceOS Product Updates
+                                                    </h3>
+                                                    <p class="text-sm text-gray-400 truncate">
+                                                        Latest PlaceOS updates
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- Channel Card 4 -->
                                         <div
-                                            class="channel-card rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border cursor-pointer"
+                                            class="channel-nav-item rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 border cursor-pointer bg-gray-800 hover:bg-gray-700 border-gray-600 hover:border-cyan-400"
                                             data-channel-id="vk2666fvka"
                                             data-channel-name="The PlaceOS Podcast"
                                         >
-                                            <div class="relative">
-                                                <!-- Emoji Icon -->
-                                                <div class="aspect-video bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center">
-                                                    <div class="text-6xl">🎧</div>
-                                                </div>
-                                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                    <div class="bg-white bg-opacity-20 rounded-full p-3">
-                                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z"/>
-                                                        </svg>
+                                            <div class="flex items-center p-4">
+                                                <div class="flex-shrink-0 mr-4">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-700 rounded-lg flex items-center justify-center">
+                                                        <div class="text-2xl">🎧</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-6">
-                                                <h3
-                                                    class="text-xl font-semibold text-white"
-                                                >
-                                                    The PlaceOS Podcast
-                                                </h3>
-                                                <p class="text-gray-400 mt-2">
-                                                    Listen to our latest podcasts and
-                                                    industry insights.
-                                                </p>
+                                                <div class="flex-1 min-w-0">
+                                                    <h3 class="text-lg font-semibold text-white truncate">
+                                                        The PlaceOS Podcast
+                                                    </h3>
+                                                    <p class="text-sm text-gray-400 truncate">
+                                                        Latest podcasts & insights
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
+                                        </div>
                                     </div>
+                                </section>
+
+                                <!-- Main Content Area -->
+                                <section>
+                                    <!-- Featured Video Section -->
+                                    <section id="featured-video-section">
+                                        <h2
+                                            class="text-2xl md:text-3xl font-bold mb-4 text-center text-white"
+                                        >
+                                            Featured Video- Energy vs Occupancy
+                                        </h2>
+                                        <div
+                                            class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto border border-gray-700"
+                                        >
+                                            <!-- Wistia Featured Video Embed -->
+                                            <div class="wistia_responsive_padding">
+                                                <div class="wistia_responsive_wrapper">
+                                                    <script src="https://fast.wistia.com/player.js" async></script>
+                                                    <script src="https://fast.wistia.com/embed/jclooc2ftg.js" async type="module"></script>
+                                                    <style>
+                                                        wistia-player[media-id='jclooc2ftg']:not(:defined) { 
+                                                            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jclooc2ftg/swatch'); 
+                                                            display: block; 
+                                                            filter: blur(5px); 
+                                                            padding-top:56.25%; 
+                                                        }
+                                                    </style>
+                                                    <wistia-player media-id="jclooc2ftg" aspect="1.7777777777777777"></wistia-player>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <!-- Inline Channel Content (Hidden by default) -->
+                                    <section id="inline-channel-section" class="hidden">
+                                        <div class="bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-4xl mx-auto border border-gray-700">
+                                            <div id="inline-channel-content">
+                                                <!-- Channel content will be loaded here -->
+                                            </div>
+                                        </div>
+                                    </section>
                                 </section>
                             </div>
 
@@ -4750,47 +4733,67 @@
                 if (videoPage) {
                     const videoMainContent = document.getElementById("video-main-content");
                     const videoHomepageView = document.getElementById("video-homepage-view");
-                    const videoChannelView = document.getElementById("video-channel-view");
-                    const videoPageTitle = document.getElementById("video-page-title");
-                    const videoPageSubtitle = document.getElementById("video-page-subtitle");
-                    const backToChannelsHomeLink = document.getElementById("back-to-channels-home");
-                    const channelCards = videoPage.querySelectorAll(".channel-card");
+                    const featuredVideoSection = document.getElementById("featured-video-section");
+                    const inlineChannelSection = document.getElementById("inline-channel-section");
+                    const inlineChannelContent = document.getElementById("inline-channel-content");
+                    const channelNavItems = videoPage.querySelectorAll(".channel-nav-item");
+                    const homeButton = document.getElementById("home-button");
 
-                    function showVideoHomepage(updateHistory = true) {
-                        backToChannelsHomeLink.classList.add("hidden");
+                    let currentChannel = null;
 
-                        videoChannelView.classList.add("hidden");
-                        videoChannelView.innerHTML = ""; // Clear previous channel
-                        videoHomepageView.classList.remove("hidden");
-
-                        videoMainContent.classList.add("content-fade-in");
-                        setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
+                    function showFeaturedVideo() {
+                        // Show featured video, hide channel content
+                        featuredVideoSection.classList.remove("hidden");
+                        inlineChannelSection.classList.add("hidden");
                         
-                        if (updateHistory) {
-                            history.pushState({ page: 'videos-home' }, '', '#videos');
-                        }
+                        // Hide home button
+                        homeButton.classList.add("hidden");
+                        
+                        // Remove active state from all nav items
+                        channelNavItems.forEach(item => {
+                            item.classList.remove("bg-cyan-600", "border-cyan-400");
+                            item.classList.add("bg-gray-800", "border-gray-600");
+                        });
+                        
+                        currentChannel = null;
                     }
 
-                    function showChannel(channelId, channelName, updateHistory = true) {
+                    function showChannel(channelId, channelName) {
                         if (!channelId) {
                             console.error("Channel ID not found");
-                            showVideoHomepage(updateHistory);
+                            showFeaturedVideo();
                             return;
                         }
 
-                        backToChannelsHomeLink.classList.remove("hidden");
+                        // Hide featured video, show channel content
+                        featuredVideoSection.classList.add("hidden");
+                        inlineChannelSection.classList.remove("hidden");
 
-                        videoHomepageView.classList.add("hidden");
+                        // Show home button
+                        homeButton.classList.remove("hidden");
 
+                        // Update channel content
                         const channelEmbedHTML = `
-                        <div class="relative max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
                             <link rel="stylesheet" href="https://fast.wistia.com/embed/channel/project/${channelId}/font.css" />
-                            <div class="wistia_channel wistia_async_${channelId} mode=inline" style="min-height:100vh;position:relative;width:100%;"></div>
-                        </div>
+                            <div class="wistia_channel wistia_async_${channelId} mode=inline" style="min-height:80vh;position:relative;width:100%;"></div>
                         `;
-                        videoChannelView.innerHTML = channelEmbedHTML;
-                        videoChannelView.classList.remove("hidden");
+                        inlineChannelContent.innerHTML = channelEmbedHTML;
 
+                        // Update active nav item
+                        channelNavItems.forEach(item => {
+                            item.classList.remove("bg-cyan-600", "border-cyan-400");
+                            item.classList.add("bg-gray-800", "border-gray-600");
+                        });
+
+                        const activeItem = document.querySelector(`[data-channel-id="${channelId}"]`);
+                        if (activeItem) {
+                            activeItem.classList.remove("bg-gray-800", "border-gray-600");
+                            activeItem.classList.add("bg-cyan-600", "border-cyan-400");
+                        }
+
+                        currentChannel = { id: channelId, name: channelName };
+
+                        // Initialize Wistia channel
                         window._wq = window._wq || [];
                         _wq.push({
                             id: channelId,
@@ -4798,52 +4801,33 @@
                                 console.log("Wistia channel loaded:", channelId);
                             },
                         });
-
-                        videoMainContent.classList.add("content-fade-in");
-                        setTimeout(() => videoMainContent.classList.remove("content-fade-in"), 500);
-                        
-                        if (updateHistory) {
-                            history.pushState({ page: 'channel', channelId: channelId, channelName: channelName }, '', `#videos/channel/${channelId}`);
-                        }
                     }
 
-                    channelCards.forEach(card => {
-                        card.addEventListener("click", (e) => {
+                    // Add click handlers to channel navigation items
+                    channelNavItems.forEach(item => {
+                        item.addEventListener("click", (e) => {
                             e.preventDefault();
-                            const id = card.getAttribute("data-channel-id");
-                            const name = card.getAttribute("data-channel-name");
-                            showChannel(id, name);
+                            const id = item.getAttribute("data-channel-id");
+                            const name = item.getAttribute("data-channel-name");
+                            
+                            if (currentChannel && currentChannel.id === id) {
+                                // If clicking the same channel, go back to featured video
+                                showFeaturedVideo();
+                            } else {
+                                // Show the selected channel
+                                showChannel(id, name);
+                            }
                         });
                     });
 
-                    backToChannelsHomeLink.addEventListener("click", (e) => {
+                    // Add click handler to home button
+                    homeButton.addEventListener("click", (e) => {
                         e.preventDefault();
-                        showVideoHomepage();
+                        showFeaturedVideo();
                     });
 
-                    // Handle browser back/forward buttons
-                    window.addEventListener('popstate', (event) => {
-                        if (event.state) {
-                            if (event.state.page === 'videos-home') {
-                                showVideoHomepage(false);
-                            } else if (event.state.page === 'channel') {
-                                showChannel(event.state.channelId, event.state.channelName, false);
-                            }
-                        } else {
-                            // If no state, check URL hash
-                            const hash = window.location.hash;
-                            if (hash === '#videos') {
-                                showVideoHomepage(false);
-                            } else if (hash.startsWith('#videos/channel/')) {
-                                const channelId = hash.split('/')[2];
-                                const card = document.querySelector(`[data-channel-id="${channelId}"]`);
-                                if (card) {
-                                    const channelName = card.getAttribute('data-channel-name');
-                                    showChannel(channelId, channelName, false);
-                                }
-                            }
-                        }
-                    });
+                    // Initialize with featured video
+                    showFeaturedVideo();
                 }
 
                 // --- Blog Page Logic ---
